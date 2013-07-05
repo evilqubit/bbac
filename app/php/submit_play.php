@@ -15,10 +15,11 @@ if(isset($_POST['continue_submit']))
 	$_SESSION['email'] = addslashes($_POST['email']);
 	$_SESSION['dob'] = addslashes($_POST['dob']);
 	$_SESSION['gender'] = addslashes($_POST['gender']);
-
+	$_SESSION['thumb_name'] = addslashes($_POST['thumb_name']) . '.png';
 	$target_paths = "gallery/";
 	$target_path_t = "gallery/t/";
-
+	
+	$_SESSION['myimg_type'] = $_FILES['image']['type'];
 
 if(($_FILES['image']['type'] == 'image/jpeg')
 || ($_FILES['image']['type'] == 'image/pjpeg')

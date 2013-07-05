@@ -27,7 +27,7 @@
 		name => "Total"
 		));*/
 		
-		mysql_close($con);
+		mysql_close($res1);
 		/*echo "<script>document.location.replace('thankyou.php');</script>";*/
 		echo "1";
 	}

@@ -18,6 +18,7 @@ $_SESSION['country'] = '';
 <link rel="stylesheet" type="text/css" href="css/jquery.ui.core.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.ui.resizable.css" />
 
+
 <script>
 
 function afcard(){

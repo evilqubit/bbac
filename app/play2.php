@@ -1,5 +1,10 @@
 <?php include "includes/header.php";?>
-<?php include "php/submit_play.php";?>
+<?php 
+if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
+{
+	echo "<script>document.location.replace('play.php');</script>";
+}
+?>
 <style>
 #Gaia{
 	height:600px;
@@ -45,7 +50,7 @@
 	visibility:  hidden;}
 </style>
 
-<div id="play">
+<div id="play" style="overflow:hidden">
 
 	<div id="terms" class="lightbox"></div>
 
@@ -65,7 +70,7 @@
         </div>
     </div>
 	
-    <div id="footer">
+    <div id="footer" style="z-index:99">
         <div class="f_btn" id="f_home"><p>home</p></div>
         <div class="footer_v"></div>
         <div class="home" id="f_play"><p>play</p></div>
@@ -79,30 +84,36 @@
 <img style="display:none" id="checking" src="gallery/t/<?php echo $_SESSION['image'];?>" />
 	<div id="error_play"></div>
 
-	<div id="blank"><div id="background" style="position:absolute"><img src="images/background/thumb1.png" /></div>
+<div id="play_bkp">
+	<div id="blank"><div id="background" style="position:absolute"><img style="width: 484px; height: 384px;" src="images/background/<?php echo $_SESSION['thumb_name'];?>" /></div>
     	<div id="blank2">
             <div id="draggable-wrapper" >
                 <div id="resizable-wrapper"><img id="elem-wrapper" src="gallery/t/<?php echo $_SESSION['image'];?>" /></div>
             </div>
         </div>
 	</div>
+</div>
 
 	<div id="option1" class="play_options">
-        <img class="rotate" id="rleft" style="cursor:pointer" src="images/rleft.png" />
-        <img class="rotate" id="rright" style="cursor:pointer" src="images/rright.png" />
+        <!--<img class="rotate" id="rleft" style="cursor:pointer" src="images/rleft.png" />
+        <img class="rotate" id="rright" style="cursor:pointer" src="images/rright.png" />-->
         
         <div id="preview">Preview</div>
     </div>
-    
+     <form method="post" action="play3.php">
+      		<input type="hidden" value="0" id="ofsetx" name="ofsetx"/>
+            <input type="hidden" value="0" id="ofsety" name="ofsety"/>
+            <input type="hidden" value="0" id="widthPos" name="widthPos"/>
+            <input type="hidden" value="0" id="heightPos" name="heightPos"/>
+           <!-- <input type="text" value="0" id="rotating" name="rotating"/>-->
     <div id="option2" class="play_options">
 		<div id="back">Back</div>
-        <div id="save">Save</div>
-    </div>
-    <input type="text" value="" id="ofsetx" name="ofsetx"/>
-	<input type="text" value="" id="ofsety" name="ofsety"/>
-    <input type="text" value="" id="widthPos" name="widthPos"/>
-	<input type="text" value="" id="heightPos" name="heightPos"/>
-    <input type="text" value="" id="rotating" name="rotating"/>
+       
+           
+            <input type="submit" value="Save" id="save" name="submit_save">
+        
+    </div></form>
+   
 </div>
 
 
@@ -112,10 +123,17 @@
 	<script type="text/javascript">
 	
 	$(window).load(function(){
-		$(".ui-resizable-handle ui-resizable-ne").css({"display":"none"});
-		$(".play_options").rotate(9.3);
-		$("#blank").rotate(9.3);
-		$("#blank2").rotate(-9.3);
+		$(".play_options").rotate(0);
+		$("#blank").rotate(0);
+		$("#blank2").rotate(0);
+		
+		var offset = $("#elem-wrapper").position();
+		var xPos = offset.left;
+		var yPos = offset.top;
+
+		$("#ofsetx").val(xPos);
+		$("#ofsety").val(yPos);
+				
 		var width = $("#checking").width();
 		var height = $("#checking").height();
 
@@ -129,30 +147,22 @@
 		    elem = $('#elem-wrapper');
 		
 		elem.resizable({
-			
 			aspectRatio: false,
-			handles:     'ne, nw, se, sw'
+			handles:     'se'
 		});
-		
+
 		drWr.draggable({
 			drag: function() {
 				
 				
-				var offset = $(this).offset();
+				var offset = $(this).position();
 				var xPos = offset.left;
 				var yPos = offset.top;
 
 				$("#ofsetx").val(xPos);
 				$("#ofsety").val(yPos);
-			},
-       		stop: function(){
-           		$("#widthPos").val(widthPos);
-				$("#heightPos").val(heightPos);
-				var widthPos = $("#elem-wrapper").width();
-				var heightPos = $("#elem-wrapper").height();
-        }});
-       
-		
+				
+			}});
 	});
 	
 	$("#widthPos").click(function(){
@@ -170,28 +180,40 @@
 <script>
 var rotate_deg = 0;
 
-$(".rotate").click(function(){
+/*$(".rotate").click(function(){
 	var rotate_id = $(this).attr("id");
 	
 	if(rotate_id == 'rleft')
 	{
-		rotate_deg -= 0.5;
+		rotate_deg -= 10.5;
 		$("#draggable-wrapper").rotate(rotate_deg);
 	}
 	
 	if(rotate_id == 'rright')
 	{
-		rotate_deg += 0.5;
+		rotate_deg += 10.5;
 		$("#draggable-wrapper").rotate(rotate_deg);
 	}
 	$("#rotating").val(rotate_deg);
-});
+});*/
 
 $("#preview").click(function(){
 	$("#blank2").css({"z-index":-1});
 	$("#option1").css({"display":"none"});
 	$("#option2").css({"display":"block"});
 	$("#elem-wrapper").css({"opacity":1});
+	
+	$(".play_options").rotate(9.3);
+	$("#play_bkp").rotate(9.3);
+	$("#play_bkp").css({"margin-left": 118,
+						"margin-top": 18});
+
+	
+		var widthPos = $("#elem-wrapper").width();
+		var heightPos = $("#elem-wrapper").height();
+		
+		$("#widthPos").val(widthPos);
+		$("#heightPos").val(heightPos);
 });
 
 $("#back").click(function(){
@@ -199,6 +221,11 @@ $("#back").click(function(){
 	$("#option2").css({"display":"none"});
 	$("#option1").css({"display":"block"});
 	$("#elem-wrapper").css({"opacity":0.6});
+	
+	$(".play_options").rotate(0);
+	$("#play_bkp").rotate(0);
+	$("#play_bkp").css({"margin-left": 80,
+						"margin-top": -28});
 });
 </script>
 

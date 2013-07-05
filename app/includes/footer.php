@@ -1,4 +1,5 @@
 </div>
+<?php mysql_close($res1);?>
 <script>
 
 $("#f_tc").click(function(){
