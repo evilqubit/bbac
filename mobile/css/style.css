@@ -207,11 +207,10 @@ margin: 10px auto;
     box-shadow: 0 0 10px #b2edfa;
 }
 #submit{
-	position:absolute;
-	width:73px;
-	height:73px;
-	margin-top: 95px;
-	right: 6px;
+
+height: 50px;
+width: 300px;
+
 }
 #submit_btn{
 	background-image:url(../images/submit.png);
@@ -285,5 +284,63 @@ width: 100% !important ;
 
 
 
+
+}
+
+
+#fillout_pic{
+
+
+
+
+
+}
+
+#fillout_pic img{
+
+		width: 200px;
+	height: auto;
+margin-left: 30%;
+
+	}
+
+
+	#fillout_pic .span6{
+
+
+
+margin-top: 14px;
+
+
+	}
+
+
+
+.fillout_pic_choose img{
+
+
+
+   -moz-box-shadow:     0 0 10px #000000;
+   -webkit-box-shadow:  0 0 10px #000000;
+   box-shadow:  0 0 10px #000000;
+
+}
+
+
+.fileupload{
+
+
+margin-top: 23px;
+margin-left: 15%;
+
+
+}
+
+.fileupload a{
+
+
+color:#014289;
+font-weight: bold;
+font-size: 20px;
 
 }

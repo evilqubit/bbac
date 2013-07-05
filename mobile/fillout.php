@@ -26,6 +26,8 @@ body{
 
 background-image: url(images/bg.jpg) !important;
 
+height: 1306px !important;
+
 }
 
 
@@ -180,7 +182,7 @@ background-image: url(images/bg.jpg) !important;
       <div class="row-fluid">
    
    
-      <div class="span12" style="width:auto">
+      <div class="" style="width:auto">
 
 
           <form class="form-horizontal fillout" action="index.php" method="post" enctype="multipart/form-data">
@@ -238,52 +240,65 @@ background-image: url(images/bg.jpg) !important;
               <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
-               <div id="fillout_pic">
-
-          <div class="row-fluid">
-<div class="span6">
-          <div class="fillout_pic_choose span3" id="thumb1"><img src="images/thumb1.png" /></div>
-            <div class="fillout_pic_choose span3" id="thumb2"><img src="images/thumb2.png" /></div>
-
-          </div>
-        </div>
-
- <!--  <div class="row-fluid">
-            <div class="fillout_pic_choose span8" id="thumb3"><img src="images/thumb3.png" /></div>
-            <div class="fillout_pic_choose span8" id="thumb4"><img src="images/thumb4.png" /></div>
-
-          </div> -->
-            <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
-         </div>
+      
 
 
             
-             <div class="control-group">
-              <label class="control-label" for="inputIcon"></label>
-              
-               <div class="fileupload fileupload-new" data-provides="fileupload">
-  <span class="btn btn-file"><span class="fileupload-new">CHOOSE PHOTO</span><span class="fileupload-exists">Change</span><input type="file" name="image" id="image"/></span>
-  <span class="fileupload-preview"></span>
-  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-</div>
-
-
-<label style="line-height: 8px;">&nbsp;</label>
-            </div>
+           
             
-             <div class="control-group">
           
-              <div class="controls">
-                <div class="input-prepend">
-                  <input for="inputIcon" class="btn btn-primary" type="submit" value="upload" id="submit" name="submit_poll">
-                </div>
-              </div>
-            </div>
-          </form>
+          
+        
 
 
       </div>
     </div>
+
+           <div id="fillout_pic" class="span12">
+
+        
+
+    <div class="row">
+          <div class="fillout_pic_choose span6" id="thumb1"><img src="images/thumb1.png" /></div>
+            <div class="fillout_pic_choose span6 " id="thumb2"><img src="images/thumb2.png" /></div>    
+          </div>
+        
+
+  <div class="row">
+            <div class="fillout_pic_choose span6" id="thumb3"><img src="images/thumb3.png" /></div>
+            <div class="fillout_pic_choose span6" id="thumb4"><img src="images/thumb4.png" /></div>
+
+          </div>
+            <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
+         </div>
+
+        <div class="span12">
+
+              
+              
+               <div class="fileupload fileupload-new" data-provides="fileupload">
+
+                <a>Upload your picture</a>
+  <span class="btn btn-file"><span class="fileupload-new">Browse...</span><span class="fileupload-exists">Change</span>
+
+  <input type="file" name="image" id="image" style="width: 90px;height: 25px;"/></span>
+  <span class="fileupload-preview"></span>
+  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+</div>
+      <div class="controls">
+                <div class="input-prepend" style="width:100%">
+                  <input for="inputIcon" class="btn btn-primary" type="submit" value="Contnue" id="submit" name="submit_poll">
+                </div>
+              </div>
+            
+          </form>
+
+
+<label style="line-height: 8px;">&nbsp;</label>
+            </div>
+
+         
 </Td></Tr></table>
   </div>
 
