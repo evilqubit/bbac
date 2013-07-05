@@ -1,5 +1,6 @@
 <?php include "includes/header.php";?>
-<?php include "php/submit_play.php";?>
+<?php include "php/user_vote.php";?>
+
 <style>
 #Gaia{
 	height:600px;
@@ -60,21 +61,22 @@
 <?php
 
 $_SESSION['i'] = 0;
+$_SESSION['sort'] = 0;
 
 	if (!isset($_GET["sort"]) || empty($_GET["sort"]))
 	{
-		$sortmethod = 0;
+		$_SESSION['sort'] = 0;
 	} 
 	else {
-		$sortmethod = $_GET["sort"];
+		$_SESSION['sort'] = $_GET["sort"];
 	}
-	if($sortmethod == 1)
+	if($_SESSION['sort'] == 1)
 	{
 		$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY name ASC LIMIT {$_SESSION['i']}, 3";
 	}
 	else
 	{
-		if ($sortmethod == 2)
+		if ($_SESSION['sort'] == 2)
 		{
 			$selectQuery = "SELECT * FROM participants WHERE status = '1' ORDER BY votes DESC LIMIT {$_SESSION['i']}, 3";
 		}
@@ -87,39 +89,9 @@ $_SESSION['i'] = 0;
 	$query_result = mysql_query($selectQuery);
 	while ($property = mysql_fetch_array($query_result))
 	{
-		?>        
-        
-        	<div class="vote_table" style="text-align:center">
-            	<div style="background-image:url(images/v_border.png); width:240px; height:190px"><img style="width:240px;" src="gallery/t/t/20130704095023.jpg" /></div>
-                <div style="width:250px; height:12px;"></div>
-            	<div style="margin:auto; width:37px"><div class="v_number"><?php echo $property['votes'];?></div></div>
-                <div style="margin:auto; width:193px; height:74px">
-                	<div class="v_text">
-                    	<div style="width:190px; color:#FFF; text-align:center;font-family: 'Conv_gotham-bold'; font-size:11px; text-transform:uppercase"><p style="-webkit-margin-before: 4px !important;"><?php echo $property['name'];?></p></div>
-                        <div style="width:190px; text-align:center; position:absolute; bottom:0; color:#FFF;font-family: 'Conv_gotham-bold'; font-size:12px; text-transform:uppercase"><p style="-webkit-margin-before: 7px !important;-webkit-margin-after: 7px !important;"><a style="color:#FFF; text-decoration:none" href="vote.php">vote</a> &nbsp; <img src="images/dot.png" /> &nbsp; <span style="cursor:pointer">share</span> &nbsp;<img src="images/dot.png" /> &nbsp;<span style="cursor:pointer">invite</span></p></div>
-                    </div>
-                </div>
-                
-             </div>
-             
-     <?php
+		include "php/gallery_design.php";
 	}
-	?>
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-           
-             
-             
+	?>     
         </div>
  
     </div>
@@ -129,6 +101,18 @@ $_SESSION['i'] = 0;
 </div>
 
 <script>
+function voteFor(image){
+	window.location = 'vote.php?partid='+image;
+}
+
+$("#b_next").click(function(){
+	next_gallery();
+});
+
+$("#b_previous").click(function(){
+	previous_gallery();
+});
+
 $("#s_name").click(function(){
 	window.location = "vote.php?sort=1";
 });

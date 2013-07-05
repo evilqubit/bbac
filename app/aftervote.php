@@ -4,7 +4,19 @@
 	height:600px;
 }
 </style>
-<div id="aftervote" class="yes">
+
+<?php
+
+if(isset($_GET['v']) && ($_GET['v'] == 1)) 
+{
+	$text = "yes";
+}
+else
+{
+	$text = "no";
+}
+?>
+<div id="aftervote" class="<?php echo $text;?>">
 
 	<div id="terms" class="lightbox"></div>
 

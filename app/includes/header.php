@@ -1,9 +1,19 @@
 <?php session_start();?>
-<?php include "connect.php";?>
+<?php include "include.php";?>
+
 <?php
-$_SESSION['uid'] = '';
-$_SESSION['country'] = '';
+include_once('ip2country.php');
+$ip2c=new ip2country();
+$ip2c->mysql_host='localhost';
+$ip2c->db_user='yasserc_total';
+$ip2c->db_pass='a123456789b';
+$ip2c->db_name='yasserc_total';
+$ip2c->table_name='ip2c';
+
+$_SESSION['country'] = $ip2c->get_country_name();
+//$ip2c->get_country_code();
 ?>
+<?php include "connect.php";?>
 <html>
 <head>
 <title>BBAC</title>
@@ -45,10 +55,44 @@ var phone = $('#phone').val();
 	});
 	
 }
+
+function next_gallery(){
+	$.post("php/next.php", function(data) {
+		if(data != 0)
+		{
+			$('#vote_body').html(data);
+		}
+	});
+}
+function previous_gallery(){
+	$.post("php/previous.php", function(data) {
+		if(data != 0)
+		{
+			$('#vote_body').html(data);
+		}
+	});
+}
+
 </script>
 
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+FB.Canvas.setSize();
+}
+// Do things that will sometimes call sizeChangeCallback()
+function sizeChangeCallback() {
+FB.Canvas.setSize();
+}
+</script>
 </head>
 
 <body>
 
 <div id="Gaia">
+<div id="fb-root"></div> 
+<script src="//connect.facebook.net/en_US/all.js"></script> 
+<script> FB.init({ appId : '179080638921235',
+status : true, // check login status 
+cookie : true, // enable cookies to allow the server to access the session
+xfbml : true// parse XFBML 
+}); FB.Canvas.setAutoResize(7); </script>

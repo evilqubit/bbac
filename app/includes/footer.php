@@ -11,6 +11,10 @@ $("#terms").click(function(){
 	$(this).css({"display":"none"});
 	$("#terms_back_bg").css({"display":"none"});
 });
+$("#terms_back_bg").click(function(){
+	$(this).css({"display":"none"});
+	$("#terms").css({"display":"none"});
+});
 
 $("#f_prizes").click(function(){
 	$("#terms").css({"display":"block"});
@@ -19,6 +23,10 @@ $("#f_prizes").click(function(){
 
 $("#terms").click(function(){
 	$(this).css({"display":"none"});
+	$("#prize_back_bg").css({"display":"none"});
+});
+$("#prize_back_bg").click(function(){
+	$("#terms").css({"display":"none"});
 	$("#prize_back_bg").css({"display":"none"});
 });
 

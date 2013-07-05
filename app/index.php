@@ -1,10 +1,35 @@
 <?php include "includes/header.php";?>
+
+
 <?php
-$name = '';
-$lastname = '';
-$dob = '';
-$address = '';
-$email = '';
+$dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
+
+if($numrows == 0)
+{
+	$date = date("Y-m-d");
+	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
+}
+
+$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
+
+if($numrows > 0)
+{
+	echo "<script>document.location.replace('vote.php');</script>";
+}
+?>
+
+
+<?php
+
+$name = $ufirst;
+$lastname = $ulast;
+$dob = $dob;
+$address = $_SESSION['country'];
+$email = $uemail;
 $phone = '';
 ?>
 <div id="index">

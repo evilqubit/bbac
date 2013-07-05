@@ -5,8 +5,6 @@ $error = '';
 $name = '';
 $age = '';
 $email = '';
-$dob = '';
-$gender = '';
 	
 	
 if(isset($_POST['continue_submit']))

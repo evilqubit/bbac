@@ -43,16 +43,16 @@
     <div id="fillout_form">
     	<div id="fillout_text">
             <div style="position:absolute; margin-top: 1px; width: 214px"  class="fillout_title">full name</div>
-            <div style="position:absolute; margin-top:16px;"><input type="text" value="" class="fillout_input" id="name" name="name"/></div>
+            <div style="position:absolute; margin-top:16px;"><input type="text" value="<?php echo $uname;?>" class="fillout_input" id="name" name="name"/></div>
            
             <div style="position:absolute; margin-top:72px; width: 214px" class="fillout_title">email address</div>
-            <div style="position:absolute; margin-top:89px;"><input type="text" value="" class="fillout_input" id="email" name="email"/></div>
+            <div style="position:absolute; margin-top:89px;"><input type="text" value="<?php echo $uemail;?>" class="fillout_input" id="email" name="email"/></div>
             
             <div style="position:absolute; margin-top:144px; width: 214px"  class="fillout_title">date of birth</div>
-            <div style="position:absolute; margin-top:162px;"><input type="text" value="" class="fillout_input" id="dob" name="dob"/></div>
+            <div style="position:absolute; margin-top:162px;"><input type="text" value="<?php echo $_SESSION['dob'];?>" class="fillout_input" id="dob" name="dob"/></div>
 
             <div style="position:absolute; margin-top:216px; width: 214px" class="fillout_title">gender</div>
-            <div style="position:absolute; margin-top:235px;"><input type="text" value="" class="fillout_input" id="gender" name="gender"/></div>
+            <div style="position:absolute; margin-top:235px;"><input type="text" value="<?php echo $_SESSION['gender'];?>" class="fillout_input" id="gender" name="gender"/></div>
          </div>
          
          <div id="fillout_pic">
