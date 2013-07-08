@@ -7,7 +7,7 @@ $config['appid' ] = "597766673589432";
 $config['secret'] = "504da90df3de81b67e8ae61aabab8b2a";
 $config['baseurl'] = "http://lebappsonline.com/dev01/bbac/app/";
 
-$config['appbaseurl'] = "http://www.facebook.com/pages/Publiscreen-Apps/581669711863250?id=581669711863250&sk=app_597766673589432";
+$config['appbaseurl'] = "http://www.facebook.com/bbacbank?&sk=app_597766673589432";
 // Create our Application instance.
 $facebook = new Facebook(array(
 'appId' => $config['appid'],

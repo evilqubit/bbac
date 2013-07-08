@@ -88,7 +88,7 @@ if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
 	<div id="blank"><div id="background" style="position:absolute"><img style="width: 484px; height: 384px;" src="images/background/<?php echo $_SESSION['thumb_name'];?>" /></div>
     	<div id="blank2">
             <div id="draggable-wrapper" >
-                <div id="resizable-wrapper"><img id="elem-wrapper" src="gallery/t/<?php echo $_SESSION['image'];?>" /></div>
+                <div id="resizable-wrapper"><img id="elem-wrapper" src="gallery/t/<?php echo $_SESSION['image'];?>" /><div style="position:absolute; bottom:0px; right:0px; font-size:18px;" onmouseover="this.style.display='none'">resize</div></div>
             </div>
         </div>
 	</div>

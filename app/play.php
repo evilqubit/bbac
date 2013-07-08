@@ -1,4 +1,16 @@
 <?php include "includes/header.php";?>
+
+<?php
+/*
+$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
+
+if($numrows > 0)
+{
+	echo "<script>document.location.replace('vote.php');</script>";
+}*/
+?>
 <?php include "php/submit_play.php";?>
 <style>
 #Gaia{
@@ -6,7 +18,7 @@
 }
 </style>
 <div id="fillout">
-
+<div style="position:absolute; right:0px; top:11px"><a href="index.php"><img src="images/logo.png" /></a></div>
 <div id="terms" class="lightbox"></div>
 
 <div id="terms_back_bg">

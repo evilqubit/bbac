@@ -10,7 +10,7 @@
 
 
 <div id="vote">
-
+<div style="position:absolute; right:0px; top:11px"><a href="index.php"><img src="images/logo.png" /></a></div>
     <div id="terms" class="lightbox"></div>
     
     <div id="terms_back_bg">
@@ -99,7 +99,57 @@ $_SESSION['sort'] = 0;
 
 
 </div>
+<input type="hidden" value="" id="bbac_image"/>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
 
+FB.init({
+        appId  : '597766673589432',
+        frictionlessRequests: true,
+    });
+
+      function sendRequestToRecipients() {
+        var user_ids = document.getElementsByName("user_ids")[0].value;
+        FB.ui({method: 'apprequests',
+          message: 'message',
+          to: user_ids, 
+        }, requestCallback);
+      }
+
+      function sendRequestViaMultiFriendSelector() {
+        FB.ui({method: 'apprequests',
+          message: 'BBAC'
+        }, requestCallback);
+      }
+      
+      function requestCallback(response) {
+        // Handle callback here
+      }
+
+$(document).ready(function() {
+
+		$('.shareit').click(function(e){
+			var myimage = $('#bbac_image').val();
+		
+			var n=myimage.replace("../","");
+
+			var img = 'http://lebappsonline.com/dev01/bbac/app/' + n;
+			
+			e.preventDefault();
+			FB.ui(
+			{
+			method: 'feed',
+			name: 'BBAC',
+			link: 'http://www.facebook.com/bbacbank?&sk=app_597766673589432',
+			picture: img,
+			caption: 'Please vote for this image',
+			description: '',
+			message: ''
+			});
+		});
+
+	});
+</script>
 <script>
 function voteFor(image){
 	window.location = 'vote.php?partid='+image;

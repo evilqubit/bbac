@@ -21,17 +21,17 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 			$votes = $row['votes'];
 			$votes += 1;
 			
-			//$image = $config['baseurl'] .'gallery/t/' . $row['image'];
+			$image = $config['baseurl'] . $row['image'];
 			
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$partid'";
 			$update = mysql_query ($db);
 		
-		/*$facebook->api("/me/feed", "post", array(
+		$facebook->api("/me/feed", "post", array(
 			message => 'I Just voted for this image',
 			picture=>  $image,
 			link => $config['appbaseurl'],
-			name => "Total"
-			));*/
+			name => "BBAC"
+			));
 			
 		echo '<script>document.location.replace("aftervote.php?v=1");</script>';
 	}
@@ -69,7 +69,7 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 				$votes = $row['votes'];
 				$votes += 1;
 				
-				//$image = $config['baseurl'] .'gallery/t/' . $row['image'];
+			$image = $config['baseurl']  . $row['image'];
 				
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$partid'";
 			$update = mysql_query ($db);
@@ -77,12 +77,12 @@ if(isset($_GET['partid']) && ($_GET['partid'] != ''))
 			$write = mysql_query("INSERT INTO votes VALUES ('','$partid','{$_SESSION['uid']}','$date')");
 			
 			
-			/*$facebook->api("/me/feed", "post", array(
+			$facebook->api("/me/feed", "post", array(
 			message => 'I Just voted for this image',
 			picture=>  $image,
 			link => $config['appbaseurl'],
-			name => "Total"
-			));*/
+			name => "BBAC"
+			));
 			
 			
 			echo '<script>document.location.replace("aftervote.php?v=1");</script>';

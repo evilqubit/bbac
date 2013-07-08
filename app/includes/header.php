@@ -5,9 +5,9 @@
 include_once('ip2country.php');
 $ip2c=new ip2country();
 $ip2c->mysql_host='localhost';
-$ip2c->db_user='yasserc_total';
+$ip2c->db_user='yasserc_bbac';
 $ip2c->db_pass='a123456789b';
-$ip2c->db_name='yasserc_total';
+$ip2c->db_name='yasserc_bbac';
 $ip2c->table_name='ip2c';
 
 $_SESSION['country'] = $ip2c->get_country_name();
