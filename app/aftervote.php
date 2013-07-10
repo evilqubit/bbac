@@ -22,9 +22,9 @@ else
 
     <div id="terms_back_bg">
         <div id="terms_back">
-            <div id="content_1" class="content">
+            
             <?php include "php/terms.php";?>
-            </div>
+            
         </div>
     </div>
     
@@ -49,5 +49,11 @@ else
     </div>
 
 </div>
+<script>
 
+$(window).load(function(e) {
+    setTimeout(function(){top.location.href = "http://www.bbacbank.com/banking/personal/card/mazroukeh-credit-card-summer-promotion"}, 3000);
+});
+
+</script>
 <?php include "includes/footer.php";?>

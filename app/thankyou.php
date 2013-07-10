@@ -10,9 +10,9 @@
     
     <div id="terms_back_bg">
         <div id="terms_back">
-            <div id="content_1" class="content">
+            
             <?php include "php/terms.php";?>
-            </div>
+            
         </div>
     </div>
     

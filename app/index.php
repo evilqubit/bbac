@@ -2,6 +2,10 @@
 
 
 <?php
+
+$_SESSION['latitude'] = '';
+$_SESSION['longitude'] = '';
+
 $dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
 $extractx = mysql_query ($dbs);
 $numrows = mysql_num_rows ($extractx);
@@ -29,9 +33,9 @@ $phone = '';
 
 <div id="terms_back_bg">
     <div id="terms_back">
-        <div id="content_1" class="content">
+       
         <?php include "php/terms.php";?>
-        </div>
+        
     </div>
 </div>
 
@@ -45,7 +49,10 @@ $phone = '';
 
         
         
-	<div id="video"><iframe width="560" height="315" src="//www.youtube.com/embed/_J-w3_NWY_I?autoplay=1" frameborder="0" allowfullscreen></iframe></div>
+	<div id="video"><iframe width="560" height="315" src="//www.youtube.com/embed/_J-w3_NWY_I?autoplay=1&version=3&loop=1&playlist=_J-w3_NWY_I" frameborder="0" allowfullscreen></iframe></div>
+    
+    
+    <a href="http://www.bbacbank.com/banking/personal/card/mazroukeh-credit-card-summer-promotion" target="_blank" id="creditcard" style="position: absolute;width: 780px;height: 267px;cursor: pointer;margin-top: 428px;margin-left: 10px; display:block"></a>
     
     <div class="button" id="apply_card"></div>
     <div class="button" id="skip_play"></div>
@@ -92,6 +99,7 @@ $phone = '';
 
 <input type="hidden" value="" id="clicks"/>
 <script>
+
 $(".button").hover(function(){
 	$(this).css({"box-shadow": "0 0 10px #b2edfa"}); 
 },function(){

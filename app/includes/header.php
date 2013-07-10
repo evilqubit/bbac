@@ -2,6 +2,7 @@
 <?php include "include.php";?>
 
 <?php
+
 include_once('ip2country.php');
 $ip2c=new ip2country();
 $ip2c->mysql_host='localhost';
@@ -14,6 +15,7 @@ $_SESSION['country'] = $ip2c->get_country_name();
 //$ip2c->get_country_code();
 ?>
 <?php include "connect.php";?>
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>BBAC</title>
@@ -21,14 +23,42 @@ $_SESSION['country'] = $ip2c->get_country_name();
 <!--[if IE]>
 	<link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
-<link href="css/style.css" rel="stylesheet" />
+
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jQueryRotate.js"></script>
+
+<script src="js/jquery-noclickdelay.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/jquery.ui.core.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.ui.resizable.css" />
 
 
+
+
+
+
+<!-- Bootstrap CSS Toolkit styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Generic page styles -->
+<!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<!-- Bootstrap CSS fixes for IE6 -->
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.io/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+
+
+<link href="css/style.css" rel="stylesheet" />
+
+
+
+
+
+<style>
+		.content{width:526px; height:307px; overflow:auto; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;}
+</style>
+
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
 <script>
 
 function afcard(){

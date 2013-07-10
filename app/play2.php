@@ -25,7 +25,7 @@ if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
 	overflow:   visible !important;}
 	
 .ui-resizable-handle {
-	background:    #f5dc58;
+	background:    rgb(255, 0, 0);;
 	border:        1px solid #FFF;
 	
 	z-index:    2;}
@@ -56,9 +56,9 @@ if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
 
     <div id="terms_back_bg">
         <div id="terms_back">
-            <div id="content_1" class="content">
+            
             <?php include "php/terms.php";?>
-            </div>
+            
         </div>
     </div>
 
@@ -81,14 +81,14 @@ if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
         <div class="footer_v"></div>
         <div class="f_btn" id="f_tc"><p>terms & conditions</p></div>
     </div>
-<img style="display:none" id="checking" src="gallery/t/<?php echo $_SESSION['image'];?>" />
+<img style="display:none" id="checking" src="gallerys/files/thumbnail/<?php echo $_SESSION['image'];?>" />
 	<div id="error_play"></div>
 
 <div id="play_bkp">
 	<div id="blank"><div id="background" style="position:absolute"><img style="width: 484px; height: 384px;" src="images/background/<?php echo $_SESSION['thumb_name'];?>" /></div>
     	<div id="blank2">
             <div id="draggable-wrapper" >
-                <div id="resizable-wrapper"><img id="elem-wrapper" src="gallery/t/<?php echo $_SESSION['image'];?>" /><div style="position:absolute; bottom:0px; right:0px; font-size:18px;" onmouseover="this.style.display='none'">resize</div></div>
+                <div id="resizable-wrapper"><img id="elem-wrapper" src="gallerys/files/thumbnail/<?php echo $_SESSION['image'];?>" /></div>
             </div>
         </div>
 	</div>
@@ -107,10 +107,10 @@ if (!isset($_SESSION['image']) || ($_SESSION['image'] == ''))
             <input type="hidden" value="0" id="heightPos" name="heightPos"/>
            <!-- <input type="text" value="0" id="rotating" name="rotating"/>-->
     <div id="option2" class="play_options">
-		<div id="back">Back</div>
+		<div id="back">&nbsp;</div>
        
            
-            <input type="submit" value="Save" id="save" name="submit_save">
+            <input type="submit" value="" id="save" name="submit_save">
         
     </div></form>
    

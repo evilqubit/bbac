@@ -23,9 +23,9 @@ if($numrows > 0)
 
 <div id="terms_back_bg">
     <div id="terms_back">
-        <div id="content_1" class="content">
+        
         <?php include "php/terms.php";?>
-        </div>
+        
     </div>
 </div>
 
@@ -73,12 +73,40 @@ if($numrows > 0)
             <div class="fillout_pic_choose" id="thumb3"><img src="images/thumb3.png" /></div>
             <div class="fillout_pic_choose" id="thumb4"><img src="images/thumb4.png" /></div>
             <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
+             <input type="hidden" value="" id="latitude" name="latitude"/>
+      		 <input type="hidden" value="" id="longitude" name="longitude"/>
          </div>
          
-         <div id="upload_submit">
+       <!--  <div id="upload_submit">
          	<div id="choose"><div style="position:absolute; z-index:1; width: 126px; height: 15px; overflow: hidden; color:#014289;font-family: 'Conv_gotham-bold'; font-size:12px" id="file_chosen">Upload your picture</div>
-            <input type="file" value="browse" style="position:absolute; width:300px; opacity:0; cursor:pointer; z-index:2;" id="choose_file" name="image"/></div>
+            <input type="file" value="browse" style="position:absolute; width:300px; opacity:0; cursor:pointer; z-index:2;" id="choose_file" name="image"/></div>-->
             
+            
+            
+            
+            
+            <div id="upload_submit">
+             <span class="btn btn-success fileinput-button">
+        <i class="icon-plus icon-white"></i>
+        <span>Select file...(max 10MB)</span>
+        <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" name="files[]"> 
+    </span>
+    <br>
+    <br>
+    <!-- The global progress bar -->
+    <div id="progress" class="progress progress-success progress-striped">
+        <div class="bar"></div>
+    </div>
+    <!-- The container for the uploaded files -->
+    <input type="hidden" value="" id="myimg" name="myimg">
+    <input type="hidden" value="" id="mytype" name="mytype">
+    </div>
+    
+    
+    
+    
+    	<div style="position: absolute; margin-top: 235px; margin-left: 468px;">
             <div id="continue"><input id="continue_submit" name="continue_submit" type="submit" value="CONTINUE" /></div>
          </div>
     </div>
@@ -86,11 +114,65 @@ if($numrows > 0)
 
 </div>
 
+
+
+<script src="js/jquery.min.js"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="js/jquery.fileupload.js"></script>
 <script>
-$("#choose_file").change(function(){
-	var myfile = $("#choose_file").val();
-	$("#file_chosen").html(myfile);
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'blueimp.github.io' ?
+                'gallerys/' : 'gallerys/';
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $("#myimg").val(file.name);
+				$("#mytype").val(file.type);
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
+</script>
+
+
+
+<script>
+
+$(window).ready(function(e) {
+    if (navigator.geolocation)
+    {
+   		navigator.geolocation.watchPosition(showPosition);
+    }
+  	else{}
+	
+	
+});
+
+
+function showPosition(position)
+{
+	$("#latitude").val(position.coords.latitude);
+	$("#longitude").val(position.coords.longitude);
+}
+
 $(".fillout_pic_choose").click(function(){
 	
 	var img_on = $("#thumb_name").val();
@@ -152,7 +234,7 @@ $("#continue_submit").click(function(){
 		return false;
 	}
 	
-	if($("#choose_file").val() == '')
+	if($("#myimg").val() == '')
 	{
 		$("#choose_file").focus();
 		$("#error_play").html("Choose your image");

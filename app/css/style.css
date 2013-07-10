@@ -24,6 +24,7 @@ img{
 	border:none;
 }
 p{
+	margin: 10px 0 10px !important;
 	-webkit-margin-before: 10px;
 	-webkit-margin-after: 1px;
 }
@@ -328,7 +329,7 @@ p{
 #upload_submit{
 	position:absolute;
 	right:0px;
-	bottom:0px;
+	bottom:45px;
 	width: 280px;
 	height: 83px;
 	overflow:hidden;
@@ -341,8 +342,6 @@ p{
 	width:160px;
 	height:23px;
 	position:absolute;
-	margin-top: -7px;
-	margin-left: 19px;
 	cursor:pointer;
 }
 #continue_submit{
@@ -431,7 +430,7 @@ p{
 	width: 82px;
 	height: 23px;
 	cursor:pointer;
-	background-image:url(../images/continue.png);
+	background-image:url(../images/save.png);
 	text-align:center;
 	color:#FFF;
 	font-family: 'Conv_gotham-bold';
@@ -443,7 +442,7 @@ p{
 	width: 82px;
 	height: 23px;
 	cursor:pointer;
-	background-image:url(../images/continue.png);
+	background-image:url(../images/back.png);
 	text-align:center;
 	color:#FFF;
 	font-family: 'Conv_gotham-bold';

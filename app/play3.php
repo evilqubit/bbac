@@ -16,8 +16,8 @@ if(isset($_POST['submit_save']))
 	$widthPos = $_POST['widthPos'];
 	$heightPos = $_POST['heightPos'];
 	
-	$target_path = "gallery/t/" . $_SESSION['image'];
-	$target_path_t = "gallery/t/t/". $_SESSION['image'];
+	$target_path = "gallerys/files/thumbnail/" . $_SESSION['image'];
+	$target_path_t = "gallerys/files/thumbnail/t/". $_SESSION['image'];
 	
 	include "php/thumb_resize.php";
 	
@@ -78,9 +78,10 @@ if(isset($_POST['submit_save']))
 	//echo $board;
 	$date = date("Y-m-d H:m:s", strtotime("+8 hours"));
 	
-	$write = mysql_query("INSERT INTO participants VALUES ('','{$_SESSION['uid']}','{$_SESSION['name']}','{$_SESSION['email']}','{$_SESSION['dob']}','{$_SESSION['gender']}','{$_SESSION['country']}','$board_url','$date','1','0')");
 	
-	unlink('gallery/'.$_SESSION['image']);
+	$write = mysql_query("INSERT INTO participants VALUES ('','{$_SESSION['uid']}','{$_SESSION['name']}','{$_SESSION['email']}','{$_SESSION['dob']}','{$_SESSION['gender']}','{$_SESSION['country']}','$board_url','$date','1','0','{$_SESSION['latitude']}','{$_SESSION['longitude']}')");
+	
+	unlink('gallerys/files/'.$_SESSION['image']);
 	
 	mysql_close($res1);
 	unset($_SESSION['image']);
