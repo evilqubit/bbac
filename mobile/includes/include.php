@@ -1,9 +1,9 @@
 <?php
 require_once "facebook.php";
  
-$app_id = "281325538680004";
-$app_secret = "e44dd0d121e9b54bd51bf85b2fc02fd2";
-$config['appbaseurl'] = "http://lebappsonline.com/dev01/total/app/";
+$app_id = "597766673589432";
+$app_secret = "504da90df3de81b67e8ae61aabab8b2a";
+$config['appbaseurl'] = "http://lebappsonline.com/dev01/bbac/mobile/";
 
 // Init facebook api.
 $facebook = new Facebook(array(
@@ -20,7 +20,7 @@ $uid = $user;
 // Get the url to redirect for login to facebook
 // and request permission to write on the user's wall.
 $login_url = $facebook->getLoginUrl(
-    array('scope' => 'email,user_birthday,publish_stream,status_update,user_work_history,publish_actions,read_stream, publish_stream, offline_access,user_likes
+    array('scope' => 'email,user_birthday,publish_stream,status_update,user_work_history,publish_actions, publish_stream, offline_access,user_likes
 	')
 );
  
@@ -90,13 +90,13 @@ EOT;
         echo '</pre>';
     }
 
-	$_SESSION['uid'] = $user;
+	//$_SESSION['uid'] = $user;
     
     $like_size = sizeof ($userLikes['data']);
     $_SESSION['found'] = 0;
     for ($i = 0; $i <= $like_size; $i++)
     {
-    	if($userLikes['data'][$i]['id'] == '581669711863250')
+    	if($userLikes['data'][$i]['id'] == '326773987368125')
         {
         	$_SESSION['found'] = 1;
         }
@@ -108,7 +108,12 @@ EOT;
         exit;
     }
     
-    $uname = $userInfo['name'];
-    $uemail = $userInfo['email'];
-    $dob = $userInfo['birthday'];
+
+$_SESSION['uid'] = $userInfo['id'];
+$uname = $userInfo['name'];
+$ufirst = $userInfo['first_name'];
+$ulast = $userInfo['last_name'];
+$uemail = $userInfo['email'];
+$_SESSION['dob'] = $dob = $userInfo['birthday'];
+$_SESSION['gender'] = $userInfo['gender'];
 ?>

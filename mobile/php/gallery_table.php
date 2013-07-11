@@ -1,26 +1,18 @@
 
-<div class="span4">
-                
-                
-                	<div id="form_table">
+<div class="span4" style="width:393px;">
+          
+                    <table align="center" style="width:393px;">
+                    <Tr><Td align="center" style="width:393px; height:327px;">
+                    <img style="width:393px; height:327px;" src="../app/<?php echo $row['image']?>" />
+                    <div style="position:absolute; margin-left: 162px; margin-top: -32px;"><input type="button" style="background-image:url(images/Vote_num.png); background-repeat:no-repeat; width:86px; height:33px; color:#014289; font-size:29px; border:none; background-color:transparent" value="<?php echo $row['votes'];?>" /></div></Td></Tr>
+                    <Tr><Td valign="top" style="width:409px; height:60px;background-image:url(images/Vote_title.png); background-repeat:no-repeat;">
+					
+					<table style="width:100%; height:100%"><Tr><Td colspan="5" style="text-align:center; font-size:16px">
+					<?php echo $row['name'];?></Td></Tr>
+                    
+                    <Tr style="font-size:14px"><Td><a href="vote.php?gallery_image=<?php echo $row['id'];?>" style="text-decoration:none; color:#FFF">VOTE</a></Td><Td><img src="images/dot.png" /></Td><Td><a class="shareit" onclick="document.getElementById('bbac_image').value='<?php echo $row['image'];?>'" href="#" style="text-decoration:none; color:#FFF">SHARE</a></Td><Td><img src="images/dot.png" /></Td><Td><a onClick="sendRequestViaMultiFriendSelector()" href="#" style="text-decoration:none; color:#FFF">INVITE</a></Td></Tr></table>
                     
                     
-                    	<div class="title">
-                            <div class="invite"><a onClick="sendRequestViaMultiFriendSelector()" href="#"><img src="images/invite.png"></a></div>
-                            <div class="share"><a class="shareit" onclick="document.getElementById('total_image').value='../app/gallery/t/<?php echo $row['image'];?>'" href="#"><img src="images/share.png"></a></div>
-                            <div class="vote">
-                            <a href="#" onclick="vote(<?php echo $row['id'];?>)"><img style="border:none" src="images/vote_b.png" /></a>
-                            </div>
-                        </div>
-                        
-                          
-                        <div class="thumb">
-                         <a class="fancybox" rel="group" href="../app/gallery/<?php echo $row['image'];?>"><img src="../app/gallery/t/<?php echo $row['image'];?>" style="margin:9px; width:190px; height:124px"></a>
-                          
-                        </div>
-                        
-                        <div style="width:100%;"><span style="color:#034ea2;font-size:12px;font-family:\'Conv_HelveticaNeueLTStd-Md\';"><?php echo $row['name'];?>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<?php echo $row['votes'];?> Vote(s)</span></div>
-                       
-                    </div>
-                    
+                    </Td></Tr>
+                    </table>
 </div>

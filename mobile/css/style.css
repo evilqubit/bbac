@@ -13,31 +13,13 @@
 	font-style: normal;
 }
 
-@font-face {
-	font-family: 'Conv_AvenirLTStd-Medium';
-	src: url('../fonts/AvenirLTStd-Medium.eot');
-	src: local('☺'), url('../fonts/AvenirLTStd-Medium.woff') format('woff'), url('../fonts/AvenirLTStd-Medium.ttf') format('truetype'), url('../fonts/AvenirLTStd-Medium.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Conv_gotham-bold';
-	src: url('../fonts/gotham-bold.eot');
-	src: local('☺'), url('../fonts/gotham-bold.woff') format('woff'), url('../fonts/gotham-bold.ttf') format('truetype'), url('../fonts/gotham-bold.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 /* iScroll css*/
 #wrapper {
-	background-image:url(../images/index.png);
-	background-repeat:no-repeat;
-	background-size: 100% auto;
+	/*background:#8ed6ed;*/
 	position:absolute;
-	top:51px; bottom:48px; left:-9999px;
+	top:50px; bottom:48px; left:-9999px;
 	width:100%;
 	overflow:auto;
-	height: 1150px !important;
 }
 
 #scroller {
@@ -54,7 +36,9 @@
 }
 
 
-
+#styling_space{
+	text-align:center; height:360px;
+}
 /**
  *
  * Pull down styles
@@ -142,205 +126,4 @@
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
 	width:100%;
 	padding:0;
-}
-
-#video {
-margin: 0 auto;
-width: 560px;
-height: 315px;
-
-}
-
-#apply_card {
-width: 149px;
-height: 51px;
-background-repeat: no-repeat;
-cursor: pointer;
-background-image: url(../images/apply_for_card.png);
-margin: 10px auto;
-
-}
-
-#skip_play {
-height: 51px;
-width: 149px;
-cursor: pointer;
-background-image: url(../images/skip_to_play.png);
-background-repeat: no-repeat;
-margin: 10px auto;
-}
-
-
-#bottom_form{
-	width:810px;
-	height:259px;
-	
-	background-repeat:no-repeat;
-	display:none;
-}
-#bottom_form_table{
-	position:absolute;
-	width: 538px;
-	height: 180px;
-	margin-left: 88px;
-	margin-top: 5px;
-	display:none;
-}
-.form_name{
-	width:137px;
-	text-align:right;
-	text-transform:uppercase;
-	color:#FFFFFF;
-	font-family: 'Conv_AvenirLTStd-Medium';
-}
-.form_input{
-	background-color:#59a7c7;
-	border:none;
-	height:20px;
-	width:284px;
-	color:#FFF;
-	text-indent:6px;
-}
-.form_input:focus{	
-	outline: none;
-    border: 1px solid #b2edfa;
-    box-shadow: 0 0 10px #b2edfa;
-}
-#submit{
-
-height: 50px;
-width: 300px;
-
-}
-#submit_btn{
-	background-image:url(../images/submit.png);
-	background-repeat:no-repeat;
-	background-color:transparent;
-	border:none;
-	width:73px;
-	height:73px;
-	cursor:pointer;
-	display:block;
-	outline: none;
-}
-
-.topdiv{
-
-	
-
-	width: 100%;
-
-	height: 691px;
-}
-
-
-
-.middiv{
-
-
-width: 100%;
-height: 101px;
-
-
-}
-
-
-
-.bottomdiv{
-
-	width: 100%;
-	height: 400px;
-	padding-top: 25px;
-	
-}
-
-
-
-.navlogo{
-
-
-	margin: 0 auto;
-	display: block;
-	width: 90px;
-	margin-top:5px;
-
-
-}
-
-
-.fillout label{
-
-
-  color:#014289;
-  text-transform: capitalize;
-  font-family: 'Conv_AvenirLTStd-Medium';
-  font-size: 20px;
-line-height: 25px;
-}
-
-.fillout .input-prepend,.fillout .input-prepend input {
-
-width: 100% !important ;
-
-
-
-
-}
-
-
-#fillout_pic{
-
-
-
-
-
-}
-
-#fillout_pic img{
-
-		width: 200px;
-	height: auto;
-margin-left: 30%;
-
-	}
-
-
-	#fillout_pic .span6{
-
-
-
-margin-top: 14px;
-
-
-	}
-
-
-
-.fillout_pic_choose img{
-
-
-
-   -moz-box-shadow:     0 0 10px #000000;
-   -webkit-box-shadow:  0 0 10px #000000;
-   box-shadow:  0 0 10px #000000;
-
-}
-
-
-.fileupload{
-
-
-margin-top: 23px;
-margin-left: 15%;
-
-
-}
-
-.fileupload a{
-
-
-color:#014289;
-font-weight: bold;
-font-size: 20px;
-
 }

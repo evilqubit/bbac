@@ -1,0 +1,2 @@
+[02-Jul-2013 08:59:44] CSRF state token does not match one provided.
+[07-Jul-2013 14:50:51] PHP Warning:  mysql_close(): 15 is not a valid MySQL-Link resource in /home1/yasserc/public_html/dev01/bbac/mobile/includes/close.php on line 2

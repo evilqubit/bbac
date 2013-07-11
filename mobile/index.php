@@ -7,14 +7,13 @@
 <?php include "js/iscroll_function.php";?>
 <style>
 body{
-	background:#233647;
+	background:#8ed6ed;
 	padding-top:0;
-  min-height: 1201px;
 }
 
 .control-label{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-	font-size:18px;
+	font-size:17px;
 	text-transform:uppercase;
 	/*text-shadow:5px 5px 10px #000000;*/
 	color:#FFF;
@@ -26,41 +25,36 @@ body{
 
 
 
-
 </style>
 
 <?php
 
-// $error = '';
-// $name = $uname;
-// $age = '';
-// $email = $uemail;
-// $address = $_SESSION['country'];
-// $phone = '';
+$error = '';
+$name = $ufirst;
+$lastname = $ulast;
+$dob = $dob;
+$address = $_SESSION['country'];
+$email = $uemail;
+$phone = '';
 
 
-// $dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
-// $extractx = mysql_query ($dbs);
-// $numrows = mysql_num_rows ($extractx);
+$dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
 
-// if($numrows == 0)
-// {
-// 	$date = date("Y-m-d");
-// 	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
-// }
+if($numrows == 0)
+{
+	$date = date("Y-m-d");
+	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
+}
 
-// $dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
-// $extractx = mysql_query ($dbs);
-// $numrows = mysql_num_rows ($extractx);
+include "php/submit.php";
 
-// if($numrows > 0)
-// {
-// 	//echo "<script>document.location.replace('vote.php');</script>";
-// }
-// else
-// {
-// 	include "php/submit.php";
-// }
+
+if(isset($_GET['form']) == 'sent')
+{
+	echo "<script>alert('Form sent successfully');</script>";
+}
 ?>
     
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -70,17 +64,16 @@ body{
 <div  class="app-nav hidden-desktop" id="leftmenu" style="height:0px; overflow:hidden">
 
 <div id="wrappers">
-
 	<div id="scrollers">
 		
         
     <ul class="nav">
-      <li>
-       <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      <li style="background-color:#666666;">
+       <a href="index.php" class="top_menu0"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">HOME</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
-      <li style="background-color:#666666;">
-        <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
+      <li>
+        <a class="top_menu0" href="play.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
@@ -88,7 +81,11 @@ body{
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="#prizes" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+       <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
@@ -106,31 +103,27 @@ body{
 </div>
         
           
-    <div id="animated" style="position:relative" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="mobile-nav btn btn-navbar test" style="padding: 8px 17px 11px 17px; margin-top: 12px;float: left; clear:both;" data-toggle="collapse" data-target=".nav-collapse">
+    <div id="animated" style="position:relative;" class="navbar navbar-inverse navbar-fixed-top">
+      <div style="background-color:transparent !important; background-image:none !important">
+        <div class="container" style=" background-image:url(images/header.png) !important; background-repeat:repeat-x;  width:100% !important">
+          <button type="button" class="mobile-nav hidden-desktop" style="padding: 7px 8px 3px 8px;float: left; clear:both; background-image:url(images/menu_button.png); background-color:transparent; border:none; width:42px; height:30px; margin-top:5px; margin-left:5px" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-    
-
-
-
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/bbacbank"><img src="images/logo_m.png">&nbsp;&nbsp;</a>
           
-          <div class="navlogo">
-          <a class="visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/">
-            <img style="width:100px" src="images/logo.png"></a></div>
+         <table style="margin-top:-5px"  align="center"><Tr><Td><a class="brand visible-phone" target="_blank" href="https://www.facebook.com/bbacbank">
+          <img src="images/logo_m.png">&nbsp;&nbsp;</a></Td></Tr></table>
           
           <div class="nav-collapse collapse visible-desktop">
             <ul class="nav">
               <li>
-               <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+               <a class="top_menu" href="index.php">HOME</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="index.php">GO TO HOMEPAGE</a>
+                <a class="top_menu" href="play.php">PLAY</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
@@ -138,7 +131,11 @@ body{
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -156,197 +153,154 @@ body{
 ================================================== -->
 
 
-<div id="wrapper">
-  <div class="topdiv">
+<div id="wrapper" style="background-color:#1d2533">
 	<div id="scroller">
 		<div id="pullDown">
 			
 		</div>
         
-        
-
-
-
-  <div class="container">
+        <table align="center" border="0" style="position:absolute; z-index:-1; width:100%"><tr><Td align="center"><img src="images/Home_bkg.png" ></Td></tr></table>
+<header id="overview">
+  <div class="container" style="text-align:center;">
+    <h1><iframe width="auto" src="//www.youtube.com/embed/_J-w3_NWY_I" frameborder="0" allowfullscreen></iframe></h1>
    
-<div id="video"><iframe width="560" height="315" src="//www.youtube.com/embed/_J-w3_NWY_I?autoplay=1" frameborder="0" allowfullscreen=""></iframe></div>
-
-</div>
-
-
-
   </div>
+</header>
 
-
-
-	</div>
-
-
-
-<div class="middiv">
-<div class="row-fluid">
-
- <div class="span6">  
-<div class="button" id="apply_card" style="box-shadow: rgb(178, 237, 250) 0px 0px 0px;"></div>
+<header id="overview">
+  <div class="container" id="styling_space" >
+    <h1>&nbsp;</h1>
   </div>
-  <div class="span6"> 
-<div class="button" id="skip_play" style="box-shadow: rgb(178, 237, 250) 0px 0px 0px;"></div>
-</div>
-</div>
-</div>
+</header>
 
 
+<style>
+.span2{
+	background-color:#59a7c7 !important;
+	border:none !important;
+}
+</style>
 
-<div class="bottomdiv row-fluid">
-
-<div class="fluid12">
-
- <div id="error"></div>
-
-<div id="bottom_form">
-  <div id="bottom_form_table">
-      <table border="0" style="position:absolute">
-        <Tr><Td class="form_name">first name</Td><Td rowspan="11" style="width:3px"></Td><Td><input class="form_input" type="text" value="<?php echo $name;?>" id="name" name="name" /></Td></Tr>
-        <tr><Td colspan="2" style="height:2px"></Td></tr>
-        <Tr><Td class="form_name">last name</Td><Td><input class="form_input" type="text" value="<?php echo $lastname;?>" id="lastname" name="lastname" /></Td></Tr>
-        <tr><Td colspan="2" style="height:3px"></Td></tr>
-        <Tr><Td class="form_name">date of brith</Td><Td><input class="form_input" type="text" value="<?php echo $dob;?>" id="dob" name="dob"/></Td></Tr>
-        <tr><Td colspan="2" style="height:4px"></Td></tr>
-        <Tr><Td class="form_name">address</Td><Td><input class="form_input" type="text" value="<?php echo $address;?>" id="address" name="address"/></Td></Tr>
-        <tr><Td colspan="2" style="height:2px"></Td></tr>
-        <Tr><Td class="form_name">email</Td><Td><input class="form_input" type="text" value="<?php echo $email;?>" id="email" name="email"/></Td></Tr>
-        <tr><Td colspan="2" style="height:3px"></Td></tr>
-        <Tr><Td class="form_name">phone number</Td><Td><input class="form_input" type="text" value="<?php echo $phone;?>" id="phone" name="phone"/></Td></Tr>
-        </table>
-        
-        <div id="submit"><input type="submit" value="" id="submit_btn" name="submit_btn"/></div>
+<div class="container">
+    <div class="row">
+        <div class="span12" style="text-align:center"><table align="center" style="max-width:480px; width:50%"><Tr><Td align="center"><img onClick="click_form()" style="cursor:pointer" src="images/btn_apply.png"></Td><Td align="center"><img onClick="window.location='play.php'" style="cursor:pointer" src="images/btn_skip.png"></Td></Tr></table></div>
     </div>
-    
 </div>
 
-</div>
-</div>
+  <div class="container" id="forms" style="display:none">
+
+    <!-- Docs nav
+    ================================================== -->
+    <table  align="center" border="0"><Tr><Td><div class="row">
+   
+   
+      <div class="span9" style="width:auto" id="aplication">
+			
+           
+
+          <form class="form-horizontal" action="index.php" method="post">
+          
+          <div class="control-group">
+	          <div class="span4">&nbsp;</div>
+          </div>
+          
+          <div class="control-group">
+	          <div id="div_error" class="span4" style="text-align:center"><span id="error"></span></div>
+          </div>
+          
+            <div class="control-group">            
+              <label class="control-label" for="name" style="line-height: 8px;">First Name</label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <input class="span2" name="name" id="name" type="text" placeholder="FIRST NAME" value="<?php echo $name;?>">
+                </div>
+              </div>
+               <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+            
+             <div class="control-group">            
+              <label class="control-label" for="lastname" style="line-height: 8px;">Last Name</label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <input class="span2" name="lastname" id="lastname" type="text" placeholder="LAST NAME" value="<?php echo $lastname;?>">
+                </div>
+              </div>
+               <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+            
+             <div class="control-group">            
+              <label class="control-label" for="dob" style="line-height: 8px;">date of birth</label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <input class="span2" name="dob" id="dob" type="text" placeholder="DATE OF BIRTH" value="<?php echo $dob;?>">
+                </div>
+              </div>
+               <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+            
+             <div class="control-group">            
+              <label class="control-label" for="address" style="line-height: 8px;">address</label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <input class="span2" name="address" id="address" type="text" placeholder="ADDRESS" value="<?php echo $address;?>">
+                </div>
+              </div>
+               <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+                    
+             <div class="control-group">
+              <label class="control-label" for="email" style="line-height: 8px;">EMAIL</label>
+              <div class="controls">
+                <div class="input-prepend">
+                 <input class="span2" name="email" id="email" type="text" placeholder="EMAIL" value="<?php echo $email;?>">
+                </div>
+              </div>
+              <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+            
+             <div class="control-group">
+              <label class="control-label" for="phone" style="line-height: 8px;">PHONE NUMBER</label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <input class="span2" name="phone" id="phone" type="text" placeholder="PHONE" value="<?php echo $phone;?>">
+
+                </div>
+              </div>
+              <label style="line-height: 8px;">&nbsp;</label>
+            </div>
+
+            
+             <div class="control-group">
+          
+              <div class="controls">
+                <div class="input-prepend" style="text-align:center">
+                  <input for="inputIcon" style="background-image:url(images/submit.png); border:none; width:59px; height:59px; background-color:transparent" type="submit" value="" id="submit" name="submit_poll">
+                </div>
+              </div>
+            </div>
+          </form>
 
 
-
-
-
-</div>
-</div>
-
-<input type="hidden" value="" id="clicks"/>
-
+      </div>
+    </div>
+</Td></Tr></table>
+  </div>
 
 
 <div id="pullUp">
-      
-    </div>
-  </div>
+			
+		</div>
+	</div>
 </div>
 
 
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/prize.png">
+ <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
 </div>
 
-<script>
-$(".button").hover(function(){
-  $(this).css({"box-shadow": "0 0 10px #b2edfa"}); 
-},function(){
-  $(this).css({"box-shadow": "0 0 0 #b2edfa"});
-});
-
-$("#apply_card").click(function(){
-  var clicks = $("#clicks").val();
-  if(clicks == '')
-  {
-    $("#error").html("");
-    $("#footer1").animate({"margin-top":1065},500);
-    $('#bottom_form').slideDown('slow',function(){
-      $("#bottom_form_table").css({"display":"block"});
-    });
-    $("#clicks").val(1);
-  }
-  else
-  {
-    $("#error").html("");
-    $("#footer2").css({"display":"none"});
-    $("#bottom_form_table").css({"display":"none"});
-    $("#footer1").animate({"margin-top":806},600);
-    $('#bottom_form').slideUp('slow', function(){
-      $("#footer1").css({"display":"block"});
-    });
-    
-    $("#clicks").val('');
-  }
-});
-
-var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-
-$("#submit_btn").click(function(){
-  
-  if($("#name").val() == '')
-  {
-    $("#name").focus();
-    $("#error").html("Enter your name");
-    return false;
-  }
-  
-  if($("#lastname").val() == '')
-  {
-    $("#lastname").focus();
-    $("#error").html("Enter your lastname");
-    return false;
-  }
-  
-  if($("#dob").val() == '')
-  {
-    $("#dob").focus();
-    $("#error").html("Enter your date of birth");
-    return false;
-  }
-  
-  if($("#address").val() == '')
-  {
-    $("#address").focus();
-    $("#error").html("Enter your address");
-    return false;
-  }
-  
-  if($("#email").val() == '')
-  {
-    $("#email").focus();
-    $("#error").html("Enter your email");
-    return false;
-  }
-  
-   if ($("#email").val().search(emailRegEx) == -1)
-   {
-    $("#email").focus();
-    $("#error").html("Enter a valid email");
-    return false;
-     }
-  
-  if($("#phone").val() == '')
-  {
-    $("#phone").focus();
-    $("#error").html("Enter your phone");
-    return false;
-  }
-  
-  if (isNaN( $("#phone").val() ))
-  {
-    $("#phone").focus();
-    $("#error").html("Only numbers");
-    $("#phone").val("");
-    return false;
-  }
-  
-  afcard();
-  
-  
-});
-</script>
+<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
+</div>
 
     <!-- Le javascript
     ================================================== -->
@@ -399,20 +353,14 @@ $("#submit_btn").click(function(){
     
 <script>
 
-$(window).ready(function(e) {
-	if (navigator.geolocation)
-	{
-		navigator.geolocation.watchPosition(showPosition);
-	}
-	else{}
-});
-
-
-function showPosition(position)
+function click_form()
 {
-	$("#latitude").val(position.coords.latitude);
-	$("#longitude").val(position.coords.longitude);
+	
+	$("#forms").css({"display":"block"});
+	myScroll.refresh();
 }
+
+
 
 $("#submit").click(function(){
 
@@ -421,6 +369,17 @@ $("#submit").click(function(){
 	if( $("#name").val() == '')
 	{
 		alert("Please enter your name");
+		return false;
+	}
+	if( $("#lastname").val() == '')
+	{
+		alert("Please enter your lastname");
+		return false;
+	}
+	
+	if( $("#dob").val() == '')
+	{
+		alert("Please enter your date of birth");
 		return false;
 	}
 	
@@ -448,11 +407,6 @@ $("#submit").click(function(){
 		return false;
 	}
 	
-	if( $("#image").val() == '')
-	{
-		alert("Please upload your image");
-		return false;
-	}
 });
 
 </script>    

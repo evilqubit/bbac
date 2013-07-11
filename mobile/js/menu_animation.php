@@ -23,35 +23,17 @@ $(document).ready(function(){
                             left: width
                         }, { duration: 240, queue: false });
 						
-						$("#leftmenu").css({"height":myheight,"width":width});
+						$("#leftmenu").css({"height":myheight,
+										"width":width});
                     }
                     else {
-                    	
                         $("#animated").animate({
                             left: 0
-                        }, { duration: 240, queue: true });
+                        }, { duration: 240, queue: false });
 						$("#wrapper").animate({
                             left: 0
-                        }, { duration: 240, queue: true });
-
-
-	
-	
-							
-						    $("#animated").animate({
-								left: 0
-							}, { duration: 240, queue: false });
-							$("#wrapper").animate({
-								left: 0
-							}, { duration: 240, queue: false });
-							$("#leftmenu").css({"height":0,
-												"width":width});
-							
-
-							
-							myScrolls.refresh();
-
-                        
+                        }, { duration: 240, queue: false });
+						$("#leftmenu").css({"height":0});
                     }
 					
  
@@ -60,13 +42,12 @@ $(document).ready(function(){
 			
 			
 $(document).ready(function(e) {
-
 	
 	var myheight = $(document).height();
 	var mywidth = $(document).width();
-
+	
 	$('#animated').css({"width":mywidth});
-    var newheight = myheight - 51;
+    var newheight = myheight - 50;
 	$('#wrapper').css({"height":newheight});
 	
 	$("#leftmenu").css({"height":0});
@@ -88,22 +69,23 @@ $(window).resize(function() {
 						$("#wrapper").animate({
                             left: 0
                         }, { duration: 240, queue: false });
-
                   
     
 			
 			
 			
-	var myheight = $(window).height();	
+	var myheights = $(window).height();	
 	var mywidth = $(window).width();
 
 	$('#animated').css({"width":mywidth});
 	
-    var newheight = myheight;
-	$('#wrapper').css({"height":newheight});
+    var newheights = myheights - 50;
+
+	$('#wrapper').css({"height":newheights});
 	
-	//$("#leftmenu").css({"height":newheight,	"width":width});
-	$('#wrappers').css({"height":newheight});
+	$("#leftmenu").css({"display":"none",
+	"width":width});
+	$('#wrappers').css({"height":newheights});
 	myScrolls.refresh();
 	
 	

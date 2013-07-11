@@ -16,7 +16,7 @@ if( (isset($_GET['like'])) && ($_GET['like'] == 1) )
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>TOTAL QUARTZ Robot Photo Competition</title>
+    <title>BBAC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -67,7 +67,7 @@ if( (isset($_GET['like'])) && ($_GET['like'] == 1) )
 <?php include "js/iscroll_function.php";?>
 <style>
 body{
-	background:#8ed6ed;
+	/*background:#8ed6ed;*/
 	padding-top:0;
 }
 
@@ -99,23 +99,33 @@ body{
         
     <ul class="nav">
     <li>
-       <iframe style="margin-left:10px; width:100px; height:22px" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FTotalLibanLebanon&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=446174518809803" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:21px;" allowTransparency="true"></iframe>
+    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fbbacbank&amp;width=292&amp;height=62&amp;show_faces=false&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false&amp;appId=446174518809803" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+    </li>
+      <li>
+       <a href="index.php" class="top_menu0"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">HOME</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-       <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+        <a class="top_menu0" href="play.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="like.php?like=1"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
+        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
       </li>
-      
+      <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="#prizes" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+       <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+      </li>
       
    
 
 	<li>&nbsp;</li><li>&nbsp;</li>
       <li style="line-height:30px">
-       <a href="#" id="sig" style="text-align:right; color:#999">Total &copy; 2013&nbsp;&nbsp;</a>
+       <a href="#" id="sig" style="text-align:right; color:#999">BBAC &copy; 2013&nbsp;&nbsp;</a>
       </li>
     </ul>
     
@@ -127,32 +137,43 @@ body{
         
           
     <div id="animated" style="position:relative" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="mobile-nav btn btn-navbar" style="padding: 7px 8px 3px 8px;float: left; clear:both;" data-toggle="collapse" data-target=".nav-collapse">
+     <div style="background-color:transparent !important; background-image:none !important">
+        <div class="container" style=" background-image:url(images/header.png) !important; background-repeat:repeat-x; width:100% !important">
+         <button type="button" class="mobile-nav hidden-desktop" style="padding: 7px 8px 3px 8px;float: left; clear:both; background-image:url(images/menu_button.png); background-color:transparent; border:none; width:42px; height:30px; margin-top:5px; margin-left:5px" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">Total</a>
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/bbacbank"> <img src="images/logo_m.png">&nbsp;&nbsp;</a>
           
-          <a class="brand visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">
-          <img style="width:40px" src="images/logo_m.png">&nbsp;&nbsp;<img style="width:40px" src="images/logon_m.png"></a>
+          <table style="margin-top:-5px" align="center"><Tr><Td><a class="brand visible-phone" target="_blank" href="https://www.facebook.com/bbacbank">
+          <img src="images/logo_m.png">&nbsp;&nbsp;</a></Td></Tr></table>
           
           <div class="nav-collapse collapse visible-desktop">
-            <ul class="nav">
+             <ul class="nav">
              <li>
-       <iframe style="margin-top:10px; width:100px; height:22px" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FTotalLibanLebanon&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=446174518809803" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:21px;" allowTransparency="true"></iframe>
-     		 </li>
+             <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fbbacbank&amp;width=292&amp;height=62&amp;show_faces=false&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false&amp;appId=446174518809803" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+             </li>
               <li>
-               <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+               <a class="top_menu" href="index.php">HOME</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <li><a class="top_menu" href="like.php?like=1">GO TO HOMEPAGE</a></li>
+                <a class="top_menu" href="play.php">PLAY</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
-            
+              <li>
+                <a class="top_menu" href="vote.php">VOTE</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
             
             </ul>
           </div>
@@ -192,7 +213,7 @@ body{
    
       <div class="span9" style="width:auto">
 
-         <img src="images/like.jpg">
+         <img src="images/like.png">
 
       </div>
     </div>
@@ -208,7 +229,11 @@ body{
 
 
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/prize.png">
+ <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
+</div>
+
+<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
 </div>
 
     <!-- Le javascript

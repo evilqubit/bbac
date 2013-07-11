@@ -1,4 +1,11 @@
 <?php session_start();?>
+<?php
+include "demo.php";
+if( ($deviceType == 'tablet') || ($deviceType == 'phone') )
+{
+	echo '<script>top.location.href = "http://lebappsonline.com/dev01/bbac/mobile/";</script>';
+}
+?>
 <?php include "include.php";?>
 
 <?php

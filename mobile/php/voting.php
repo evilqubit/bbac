@@ -22,17 +22,17 @@ if( (isset($_GET['gallery_image'])) && ($_GET['gallery_image'] != ''))
 			$votes = $row['votes'];
 			$votes += 1;
 			
-			$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $row['image'];
+			//$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $row['image'];
 			
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$gallery_image'";
 			$update = mysql_query ($db);
 		
-		$facebook->api("/me/feed", "post", array(
+		/*$facebook->api("/me/feed", "post", array(
 			message => 'I Just voted for this image',
 			picture=>  $image,
 			link => $config['appbaseurl'],
 			name => "Total"
-			));
+			));*/
 			
 		echo '<script>document.location.replace("after_vote.php?v=1");</script>';
 	}
@@ -59,7 +59,7 @@ if( (isset($_GET['gallery_image'])) && ($_GET['gallery_image'] != ''))
 		
 		if($days == 0)
 		{
-			echo '<script>document.location.replace("after_vote.php?v=0");</script>';
+			echo '<script>document.location.replace("aftervote.php?v=0");</script>';
 		}
 		else
 		{
@@ -70,12 +70,12 @@ if( (isset($_GET['gallery_image'])) && ($_GET['gallery_image'] != ''))
 				$votes = $row['votes'];
 				$votes += 1;
 				
-				$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $row['image'];
+			//	$image = 'http://lebappsonline.com/dev01/total/app/gallery/t/' . $row['image'];
 				
 			$db ="UPDATE participants SET votes = '$votes' WHERE id= '$gallery_image'";
 			$update = mysql_query ($db);
 			
-			$write = mysql_query("INSERT INTO votes VALUES ('','$gallery_image','{$_SESSION['uid']}','$date')");
+		/*	$write = mysql_query("INSERT INTO votes VALUES ('','$gallery_image','{$_SESSION['uid']}','$date')");
 			
 			
 			$facebook->api("/me/feed", "post", array(
@@ -83,10 +83,10 @@ if( (isset($_GET['gallery_image'])) && ($_GET['gallery_image'] != ''))
 			picture=>  $image,
 			link => $config['appbaseurl'],
 			name => "Total"
-			));
+			));*/
 			
 			
-			echo '<script>document.location.replace("after_vote.php?v=1");</script>';
+			echo '<script>document.location.replace("aftervote.php?v=1");</script>';
 			
 		}
 		

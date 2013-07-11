@@ -79,7 +79,7 @@ if(isset($_POST['submit_save']))
 	$date = date("Y-m-d H:m:s", strtotime("+8 hours"));
 	
 	
-	$write = mysql_query("INSERT INTO participants VALUES ('','{$_SESSION['uid']}','{$_SESSION['name']}','{$_SESSION['email']}','{$_SESSION['dob']}','{$_SESSION['gender']}','{$_SESSION['country']}','$board_url','$date','1','0','{$_SESSION['latitude']}','{$_SESSION['longitude']}')");
+	$write = mysql_query("INSERT INTO participants VALUES ('','{$_SESSION['uid']}','{$_SESSION['name']}','{$_SESSION['email']}','{$_SESSION['dob']}','{$_SESSION['gender']}','{$_SESSION['country']}','$board_url','$date','0','0','{$_SESSION['latitude']}','{$_SESSION['longitude']}')");
 	
 	unlink('gallerys/files/'.$_SESSION['image']);
 	

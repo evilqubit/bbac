@@ -1,12 +1,12 @@
 <?php session_start();
-
+/*
 include "demo.php";
 if ($deviceType == 'computer')
 {
-	//echo '<script>top.location.href = "https://www.facebook.com/TotalLibanLebanon?sk=app_281325538680004";</script>';
+	echo '<script>top.location.href = "http://www.facebook.com/bbacbank?&sk=app_597766673589432";</script>';
 }
  
-//include "include.php";
+include "include.php";
 ?>
 <?php
 
@@ -14,26 +14,35 @@ if ($deviceType == 'computer')
 include_once('ip2country.php');
 $ip2c=new ip2country();
 $ip2c->mysql_host='localhost';
-$ip2c->db_user='yasserc_total';
+$ip2c->db_user='yasserc_bbac';
 $ip2c->db_pass='a123456789b';
-$ip2c->db_name='yasserc_total';
+$ip2c->db_name='yasserc_bbac';
 $ip2c->table_name='ip2c';
 
 $_SESSION['country'] = $ip2c->get_country_name();
 //$ip2c->get_country_code();
 
-include "connect.php";
+include "connect.php";*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>TOTAL QUARTZ Robot Photo Competition</title>
+    <title>BBAC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 	
     <link href="css/style.css" rel="stylesheet">
+	<link href="css/style_responsive.css" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jQueryRotate.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.core.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.resizable.css" />
+    
+
 
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">

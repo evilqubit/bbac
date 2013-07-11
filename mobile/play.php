@@ -1,4 +1,5 @@
 <?php include "includes/header.php";?>
+<?php include "php/submit_play.php";?>
 
 <script src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="src/iscroll.js"></script>
@@ -6,8 +7,15 @@
 
 <?php include "js/iscroll_function.php";?>
 <style>
+html { 
+  background: url(images/play_bkg.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body{
-	background:#8ed6ed;
+	/*background:#8ed6ed;*/
 	padding-top:0;
 }
 
@@ -16,18 +24,10 @@ body{
 	font-size:18px;
 	text-transform:uppercase;
 	/*text-shadow:5px 5px 10px #000000;*/
-	color:#FFF;
+	color:#014289;
 }
 .fileupload-new{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
-}
-#wrapper{
-
-
-background-image: url(images/bg.jpg) !important;
-
-height: 1306px !important;
-
 }
 
 
@@ -36,37 +36,17 @@ height: 1306px !important;
 </style>
 
 <?php
+/*
 
-// $error = '';
-// $name = $uname;
-// $age = '';
-// $email = $uemail;
-// $dob = $_SESSION['country'];
-// $gender = '';
+$dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
+$extractx = mysql_query ($dbs);
+$numrows = mysql_num_rows ($extractx);
 
-
-// $dbs = "SELECT * FROM users WHERE fb_id = '{$_SESSION['uid']}'";
-// $extractx = mysql_query ($dbs);
-// $numrows = mysql_num_rows ($extractx);
-
-// if($numrows == 0)
-// {
-// 	$date = date("Y-m-d");
-// 	$write = mysql_query("INSERT INTO users VALUES ('','{$_SESSION['uid']}','$uname','$uemail','$dob','$date')");
-// }
-
-// $dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
-// $extractx = mysql_query ($dbs);
-// $numrows = mysql_num_rows ($extractx);
-
-// if($numrows > 0)
-// {
-// 	//echo "<script>document.location.replace('vote.php');</script>";
-// }
-// else
-// {
-// 	include "php/submit.php";
-// }
+if($numrows > 0)
+{
+	echo "<script>document.location.replace('vote.php');</script>";
+}
+*/
 ?>
     
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -81,11 +61,11 @@ height: 1306px !important;
         
     <ul class="nav">
       <li>
-       <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+       <a href="index.php" class="top_menu0" ><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">HOME</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li style="background-color:#666666;">
-        <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
+        <a class="top_menu0" href="play.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
@@ -93,14 +73,18 @@ height: 1306px !important;
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="#prizes" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+       <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
 
 	<li>&nbsp;</li><li>&nbsp;</li>
       <li style="line-height:30px">
-       <a href="#" id="sig" style="text-align:right; color:#999">Total &copy; 2013&nbsp;&nbsp;</a>
+       <a href="#" id="sig" style="text-align:right; color:#999">BBAC &copy; 2013&nbsp;&nbsp;</a>
       </li>
     </ul>
     
@@ -111,27 +95,27 @@ height: 1306px !important;
 </div>
         
           
-    <div id="animated" style="position:relative" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="mobile-nav btn btn-navbar test" style="padding: 8px 17px 11px 17px; margin-top: 12px;float: left; clear:both;" data-toggle="collapse" data-target=".nav-collapse">
+    <div id="animated" style="position:relative;" class="navbar navbar-inverse navbar-fixed-top">
+      <div style="background-color:transparent !important; background-image:none !important">
+        <div class="container" style=" background-image:url(images/header.png) !important; background-repeat:repeat-x;  width:100% !important">
+          <button type="button" class="mobile-nav hidden-desktop" style="padding: 7px 8px 3px 8px;float: left; clear:both; background-image:url(images/menu_button.png); background-color:transparent; border:none; width:42px; height:30px; margin-top:5px; margin-left:5px" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/bbacbank"><img src="images/logo_m.png">&nbsp;&nbsp;</a>
           
-          <div class="navlogo">
-          <a class="visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/">
-            <img style="width:100px" src="images/logo.png"></a></div>
+          <table style="margin-top:-5px" align="center"><Tr><Td><a class="brand visible-phone" target="_blank" href="https://www.facebook.com/bbacbank">
+          <img src="images/logo_m.png">&nbsp;&nbsp;</a></Td></Tr></table>
           
           <div class="nav-collapse collapse visible-desktop">
             <ul class="nav">
               <li>
-               <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+               <a class="top_menu" href="index.php">HOME</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="index.php">GO TO HOMEPAGE</a>
+                <a class="top_menu" href="play.php">PLAY</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
@@ -139,7 +123,11 @@ height: 1306px !important;
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -163,29 +151,37 @@ height: 1306px !important;
 			
 		</div>
         
-        
-<header id="overview" class="visible-tablet visible-desktop">
-  <div class="container" style="text-align:center">
-    <h1><img src="images/logo.png"></h1>
-   
-  </div>
-</header>
+       <!-- <table align="center" border="0" style="position:absolute; z-index:-1; width:100%"><tr><Td align="center"><img src="images/play_bkg.png" ></Td></tr></table>-->
 
 
-  <div class="container">
+
+
+
+<style>
+.span2{
+	background-color:#59a7c7 !important;
+	border:none !important;
+}
+.fillout_pic_choose{
+	cursor:pointer;
+	opacity: 0.3;
+}
+</style>
+
+
+
+  <div class="container" id="forms">
 
     <!-- Docs nav
     ================================================== -->
-    <table align="center" width="90%" border="0" style="margin: 0 auto"><Tr><Td>
-
-
-      <div class="row-fluid">
+    <table  align="center" border="0"><Tr><Td><div class="row">
    
    
-      <div class="" style="width:auto">
+      <div class="span9" style="width:auto" id="aplication">
+			
+           
 
-
-          <form class="form-horizontal fillout" action="index.php" method="post" enctype="multipart/form-data">
+          <form class="form-horizontal" action="play.php" method="post" enctype="multipart/form-data">
           
           <div class="control-group">
 	          <div class="span4">&nbsp;</div>
@@ -195,110 +191,72 @@ height: 1306px !important;
 	          <div id="div_error" class="span4" style="text-align:center"><span id="error"></span></div>
           </div>
           
-            <div class="control-group">
-            
+            <div class="control-group">            
               <label class="control-label" for="name" style="line-height: 8px;">Full Name</label>
-              <br>
               <div class="controls">
                 <div class="input-prepend">
-                  <input class="span2" name="name" id="name" type="text" placeholder="FULL NAME" value="<?php echo $name;?>">
+                  <input class="span2" name="name" id="name" type="text" placeholder="NAME" value="<?php echo $name;?>">
                 </div>
               </div>
                <label style="line-height: 8px;">&nbsp;</label>
             </div>
-                    
-             <div class="control-group">
+            
+             <div class="control-group">            
               <label class="control-label" for="email" style="line-height: 8px;">Email Address</label>
               <div class="controls">
                 <div class="input-prepend">
-                 <input class="span2" name="email" id="email" type="text" placeholder="EMAIL" value="<?php echo $email;?>">
+                  <input class="span2" name="email" id="email" type="text" placeholder="EMAIL" value="<?php echo $email;?>">
                 </div>
               </div>
-              <label style="line-height: 8px;">&nbsp;</label>
+               <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
-             <div class="control-group">
-              <label class="control-label" for="dob" style="line-height: 8px;">Date of Birth</label>
+             <div class="control-group">            
+              <label class="control-label" for="dob" style="line-height: 8px;">date of birth</label>
               <div class="controls">
                 <div class="input-prepend">
-                  <input class="span2" name="dob" id="dob" type="text" placeholder="Date of Birth" value="<?php echo $dob;?>">
+                  <input class="span2" name="dob" id="dob" type="text" placeholder="DATE OF BIRTH" value="<?php echo $dob;?>">
                 </div>
               </div>
-              <label style="line-height: 8px;">&nbsp;</label>
+               <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
-             <div class="control-group">
-              <label class="control-label" for="gender" style="line-height: 8px;">Gender</label>
+             <div class="control-group">            
+              <label class="control-label" for="gender" style="line-height: 8px;">gender</label>
               <div class="controls">
                 <div class="input-prepend">
-                  <input class="span2" name="gender" id="gender" type="text" placeholder="gender" value="<?php echo $gender;?>">
-
-                  <input class="span2" name="latitude" id="latitude" type="hidden" value="">
-                  <input class="span2" name="longitude" id="longitude" type="hidden" value="">
+                  <input class="span2" name="gender" id="gender" type="text" placeholder="GENDER" value="<?php echo $gender;?>">
                 </div>
               </div>
-              <label style="line-height: 8px;">&nbsp;</label>
+               <label style="line-height: 8px;">&nbsp;</label>
             </div>
             
-      
-
-
+             <div class="control-group">            
+              <label class="control-label fillout_pic_choose" id="thumb1" style="line-height: 8px;"><img src="images/thumb1.png"></label>
+                       
+              <label class="control-label fillout_pic_choose" id="thumb2" style="line-height: 8px;"><img src="images/thumb2.png"></label>
+            </div>
             
-           
+             <div class="control-group">            
+              <label class="control-label fillout_pic_choose" id="thumb3" style="line-height: 8px;"><img src="images/thumb3.png"></label>
+                   
+              <label class="control-label fillout_pic_choose" id="thumb4" style="line-height: 8px;"><img src="images/thumb4.png"></label>
+               <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
+            </div>
             
-          
-          
-        
-
-
-      </div>
-    </div>
-
-           <div id="fillout_pic" class="span12">
-
-        
-
-    <div class="row">
-          <div class="fillout_pic_choose span6" id="thumb1"><img src="images/thumb1.png" /></div>
-            <div class="fillout_pic_choose span6 " id="thumb2"><img src="images/thumb2.png" /></div>    
-          </div>
-        
-
-  <div class="row">
-            <div class="fillout_pic_choose span6" id="thumb3"><img src="images/thumb3.png" /></div>
-            <div class="fillout_pic_choose span6" id="thumb4"><img src="images/thumb4.png" /></div>
-
-          </div>
-            <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
-         </div>
-
-        <div class="span12">
-
-              
-              
-               <div class="fileupload fileupload-new" data-provides="fileupload">
-
-                <a>Upload your picture</a>
-  <span class="btn btn-file"><span class="fileupload-new">Browse...</span><span class="fileupload-exists">Change</span>
-
-  <input type="file" name="image" id="image" style="width: 90px;height: 25px;"/></span>
-  <span class="fileupload-preview"></span>
-  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-
-</div>
-      <div class="controls">
-                <div class="input-prepend" style="width:100%">
-                  <input for="inputIcon" class="btn btn-primary" type="submit" value="Contnue" id="submit" name="submit_poll">
-                </div>
-              </div>
+             <div class="control-group" style="text-align:center">
+             	<input type="file" name="image" id="choose_file">
+            </div>
+            
+            <div class="control-group" style="text-align:center">
+             	<input type="submit" value="" name="continue_submit" id="submit_poll" style="background-image:url(images/continue.png); border:none; width:230px; height:33px;">
+            </div>
             
           </form>
 
 
-<label style="line-height: 8px;">&nbsp;</label>
-            </div>
-
-         
+      </div>
+    </div>
 </Td></Tr></table>
   </div>
 
@@ -311,7 +269,11 @@ height: 1306px !important;
 
 
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/prize.png">
+ <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
+</div>
+
+<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
 </div>
 
     <!-- Le javascript
@@ -365,28 +327,36 @@ height: 1306px !important;
     
 <script>
 
-$(window).ready(function(e) {
-	if (navigator.geolocation)
+
+$(".fillout_pic_choose").click(function(){
+	
+	var img_on = $("#thumb_name").val();
+	
+	if(img_on != '')
 	{
-		navigator.geolocation.watchPosition(showPosition);
+		$("#"+img_on).css({"opacity" : 0.3,
+							"filter" : "alpha(opacity=40)"
+		});
 	}
-	else{}
+	$("#thumb_name").val($(this).attr("id"));
+	$(this).css({"opacity" : 1,
+				"filter" : "alpha(opacity=100)"
+	});
 });
 
-
-function showPosition(position)
-{
-	$("#latitude").val(position.coords.latitude);
-	$("#longitude").val(position.coords.longitude);
-}
-
-$("#submit").click(function(){
+$("#submit_poll").click(function(){
 
 	var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 	
 	if( $("#name").val() == '')
 	{
-		alert("Please enter your name");
+		alert("Please enter your full name");
+		return false;
+	}
+	
+	if( $("#dob").val() == '')
+	{
+		alert("Please enter your date of birth");
 		return false;
 	}
 	
@@ -402,23 +372,29 @@ $("#submit").click(function(){
 		return false;
      }
   
-	if( $("#dob").val() == '')
+	if( $("#address").val() == '')
 	{
-		alert("Please enter your Date of Birth");
+		alert("Please enter your address");
 		return false;
 	}
 	
-	if (isNaN( $("#gender").val() ))
+	if($("#gender").val() == '')
 	{
-		alert("gender number can be only numbers");
+		alert("Enter your gender");
+		return false;
+	}
+	if($("#thumb_name").val() == '')
+	{
+		alert("Choose your background");
 		return false;
 	}
 	
-	if( $("#image").val() == '')
+	if($("#choose_file").val() == '')
 	{
-		alert("Please upload your image");
+		alert("Choose your image");
 		return false;
 	}
+	
 });
 
 </script>    

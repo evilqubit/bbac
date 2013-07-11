@@ -1,5 +1,4 @@
 <?php
-phpinfo();
 # URL's from the web
 $board_url = "http://eclecticdjs.com/mike/tutorials/php/imagemagick/examples_09/board.png";
 $printer_url = "http://eclecticdjs.com/mike/tutorials/php/imagemagick/examples_09/printer.png";

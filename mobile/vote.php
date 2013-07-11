@@ -1,5 +1,5 @@
 <?php include "includes/header.php";?>
-
+<?php include "php/voting.php";?>
 <script src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="src/iscroll.js"></script>
 
@@ -141,8 +141,15 @@ $(document).ready(function() {
 <?php include "php/voting.php";?>
 
 <style>
+html { 
+  background: url(images/play_bkg.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body{
-	background:#8ed6ed;
+	/*background:#8ed6ed;*/
 	padding-top:0;
 }
 
@@ -150,7 +157,6 @@ body{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 	font-size:22px;
 	text-transform:uppercase;
-	text-shadow:5px 5px 10px #000000;
 	color:#FFF;
 }
 .lightbox{
@@ -165,7 +171,7 @@ body{
 	font-family: 'Conv_HelveticaNeueLTStd-Bd';
 	font-size:22px;
 	text-transform:uppercase;
-	text-shadow:5px 5px 10px #000000;
+
 	color:#FFF;
 	float:left;
 	margin:5px;
@@ -174,10 +180,8 @@ body{
 	
 }
 #form_table{
-	background-image:url(images/frame.png);
-	width:206px;
+	width:393px;
 	margin:auto;
-	border-style:solid; border-width:2px;border-color:#4773a2;
 	
 	
 }
@@ -200,18 +204,19 @@ body{
 	right:110px;
 }
 
-
+#wrapper {
+	/*background:#8ed6ed;*/
+	position:absolute;
+	top:105px; bottom:48px; left:-9999px;
+	width:100%;
+	overflow:auto;
+}
 </style>
  
-  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 
-
-
-        
-        
     <!-- Navbar
-    ================================================== -->    
-
+    ================================================== -->
 <div  class="app-nav hidden-desktop" id="leftmenu" style="height:0px; overflow:hidden">
 
 <div id="wrappers">
@@ -220,36 +225,30 @@ body{
         
     <ul class="nav">
       <li>
-       <a href="#prizes" class="top_menu0" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+       <a href="index.php" class="top_menu0"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">HOME</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="index.php"><img style="width:25px" src="images/icons/home.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">GO TO HOMEPAGE</span></a>
+        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li style="background-color:#666666;">
-         <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
+        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/vote.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTE</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="#prizes" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PRIZES</span></a>
+      </li>
+       <li><hr style="border-color:#2D2D2D" width=100%></li>
+      <li>
+        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
-      <li><hr style="border-color:#2D2D2D" width=100%></li>
-      <li style="background-color:#202020;"><a href="#" style="color:#CCC; font-weight:bold;">SORT BY</a></li>
-       <li>&nbsp;</li>
-      <li>
-        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/sort-by-name.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">NAMES</span></a>
-      </li>
-      
-      <li><hr style="border-color:#2D2D2D" width=100%></li>
-      <li>
-        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/sort-by-votes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">VOTES</span></a>
-      </li>
+   
 
 	<li>&nbsp;</li><li>&nbsp;</li>
       <li style="line-height:30px">
-       <a href="#" id="sig" style="text-align:right; color:#999">Total &copy; 2013&nbsp;&nbsp;</a>
+       <a href="#" id="sig" style="text-align:right; color:#999">BBAC &copy; 2013&nbsp;&nbsp;</a>
       </li>
     </ul>
     
@@ -260,36 +259,41 @@ body{
 </div>
         
           
-    <div id="animated" style="position:relative" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="mobile-nav btn btn-navbar" style="padding: 8px 17px 11px 17px; margin-top: 12px;float: left; clear:both;" data-toggle="collapse" data-target=".nav-collapse">
+    <div id="animated" style="position:relative;" class="navbar navbar-inverse navbar-fixed-top">
+      <div style="background-color:transparent !important; background-image:none !important">
+        <div class="container" style=" background-image:url(images/header.png) !important; background-repeat:repeat-x; width:100% !important">
+          <button type="button" class="mobile-nav hidden-desktop" style="padding: 7px 8px 3px 8px;float: left; clear:both; background-image:url(images/menu_button.png); background-color:transparent; border:none; width:42px; height:30px; margin-top:5px; margin-left:5px" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">Total</a>
+          <a class="brand visible-tablet visible-desktop" style="float:right" target="_blank" href="https://www.facebook.com/bbacbank"> <img src="images/logo_m.png">&nbsp;&nbsp;</a>
           
-          <a class="brand visible-phone" style="float:right" target="_blank" href="https://www.facebook.com/TotalLibanLebanon">
-          <img style="width:40px" src="images/logo_m.png">&nbsp;&nbsp;<img style="width:40px" src="images/logon_m.png"></a>
+          <table style="margin-top:-5px" align="center"><Tr><Td><a class="brand visible-phone" target="_blank" href="https://www.facebook.com/bbacbank">
+          <img src="images/logo_m.png">&nbsp;&nbsp;</a></Td></Tr></table>
           
           <div class="nav-collapse collapse visible-desktop">
             <ul class="nav">
-            
-              <li><a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a></li>
-              
-              <li><a class="top_menu" href="index.php">GO TO HOMEPAGE</a></li>
-              
-              <li><a class="top_menu" href="vote.php">VOTE</a></li>
-              
-              <li><a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a></li>
-              
-              <li><a href="#">|</a></li>
-              <li><a class="top_menu" href="#">SORT BY:</a></li>
-              
-              <li><a class="top_menu" href="vote.php?sort=1">NAME</a></li>
-              
-              <li><a class="top_menu" href="vote.php?sort=2">VOTE</a></li>
+              <li>
+               <a class="top_menu" href="index.php">HOME</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="play.php">PLAY</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="vote.php">VOTE</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#prizes" role="button" data-toggle="modal">PRIZES</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
+              <li>
+                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+              </li>
+              <li><hr style="border-color:#000" width=100%></li>
             
             </ul>
           </div>
@@ -300,7 +304,16 @@ body{
         </div>
       </div>
     </div>
+
     
+
+   <table id="sortingg" style="position:absolute; width:100%"><tr><Td align="center">
+   
+   				<table style="background-image:url(images/sorting.png); width:443px; height:29px;font-family: 'Conv_HelveticaNeueLTStd-Md';"><Tr><Td style="width: 138px; text-align:right; color:#FFF">SORT BY:</Td><tD style="width: 117px; text-align:right; color:#98d3ed"><a href="vote.php?sort=1" style="text-decoration:none;color:#98d3ed">NAME</a></tD><Td style="width: 66px; text-align:center"><img src="images/bar.png"></Td><Td style="color:#98d3ed"><a href="vote.php?sort=2" style="text-decoration:none;color:#98d3ed">VOTES</a></Td></Tr></table>
+                
+	</Td></tr></table>
+   
+
 
 <div id="wrapper">
 	<div id="scroller">
@@ -309,12 +322,7 @@ body{
 		</div>
 <!-- Subhead
 ================================================== -->
-<header id="overview" class="visible-tablet visible-desktop">
-  <div class="container" style="text-align:center">
-    <h1><img src="images/logo.png"></h1>
-   
-  </div>
-</header>
+
 
 
 
@@ -378,7 +386,7 @@ body{
           </div>
      </div>
 </div>
-<input type="hidden" value="" id="total_image"/>
+<input type="hidden" value="" id="bbac_image"/>
 
 <div id="pullUp">
 			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
@@ -388,7 +396,11 @@ body{
 
 
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/prize.png">
+ <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
+</div>
+
+<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
 </div>
     
 
@@ -442,13 +454,9 @@ body{
     
 <script src="https://connect.facebook.net/en_US/all.js"></script>  
 <script>
-function vote(img){
-	window.location = 'vote.php?gallery_image='+ img;
-}
-
 
 FB.init({
-        appId  : '281325538680004',
+        appId  : '597766673589432',
         frictionlessRequests: true,
     });
 
@@ -462,7 +470,7 @@ FB.init({
 
       function sendRequestViaMultiFriendSelector() {
         FB.ui({method: 'apprequests',
-          message: 'message'
+          message: 'BBAC'
         }, requestCallback);
       }
       
@@ -473,20 +481,20 @@ FB.init({
 $(document).ready(function() {
 
 		$('.shareit').click(function(e){
-			var myimage = $('#total_image').val();
+			var myimage = $('#bbac_image').val();
 		
 			var n=myimage.replace("../","");
 
-			var img = 'http://lebappsonline.com/dev01/total/' + n;
+			var img = 'http://lebappsonline.com/dev01/bbac/app/' + n;
 			
 			e.preventDefault();
 			FB.ui(
 			{
 			method: 'feed',
-			name: 'Total',
-			link: '<?php echo $config['appbaseurl'];?>',
+			name: 'BBAC',
+			link: 'http://www.facebook.com/bbacbank?&sk=app_597766673589432',
 			picture: img,
-			caption: 'TOTAL QUARTZ Robot Photo Competition',
+			caption: 'Please vote for this image',
 			description: '',
 			message: ''
 			});
@@ -494,7 +502,203 @@ $(document).ready(function() {
 
 	});
 </script>
-<?php include "js/menu_animation.php";?>
+
+
+<script>
+
+$(document).ready(function(){
+                
+                
+                // Close/Open Navigation
+               var myheight = $(document).height();
+                
+				$(".mobile-nav").on("click",function(e){
+                    e.preventDefault();
+					
+					 var width = ($(window).width())*0.80;
+           			
+				
+                    $(this).toggleClass('open-nav');
+                    
+                    if($(this).hasClass('open-nav')){
+                        
+                        $("#animated").animate({
+                            left: width
+                        }, { duration: 240, queue: false });
+						$("#sortingg").animate({
+                            left: width
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: width
+                        }, { duration: 240, queue: false });
+						
+						$("#leftmenu").css({"height":myheight,
+										"width":width});
+						
+                    }
+                    else {
+                        $("#animated").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#sortingg").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#leftmenu").css({"height":0});
+                    }
+					
+ 
+                });
+            });
+			
+			
+$(document).ready(function(e) {
+	
+	var myheight = $(document).height();
+	var mywidth = $(document).width();
+	
+	$('#animated').css({"width":mywidth});
+    var newheight = myheight - 110;
+	$('#wrapper').css({"height":newheight});
+	
+	$("#leftmenu").css({"height":0});
+	$('#wrappers').css({"height":newheight});
+	myScrolls.refresh();
+	
+	
+});
+
+$(window).resize(function() {
+	
+	 // Close/Open Navigation
+                var width = ($(window).width())*0.80;
+           		
+              
+                        $("#animated").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+						$("#wrapper").animate({
+                            left: 0
+                        }, { duration: 240, queue: false });
+                  
+    
+			
+			
+			
+	var myheights = $(window).height();	
+	var mywidth = $(window).width();
+
+	$('#animated').css({"width":mywidth});
+	
+    var newheights = myheights - 110;
+
+	$('#wrapper').css({"height":newheights});
+	
+	$("#leftmenu").css({"display":"none",
+	"width":width});
+	$('#wrappers').css({"height":newheights});
+	myScrolls.refresh();
+	
+	
+});
+
+</script>
+
+
+<script src="js/quo.js"></script>
+<script src="js/quo.debug.js"></script>
+    
+<script>
+$$('#animated').swipeLeft(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#sortingg").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+});
+
+
+$$('#animated').swipeRight(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#sortingg").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: width
+	}, { duration: 240, queue: false });
+});
+
+$$('#wrapper').swipeLeft(function() {
+    // affects "span" children/grandchildren
+	
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#sortingg").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: 0
+	}, { duration: 240, queue: false });
+	$("#leftmenu").css({"height":0,
+						"width":width});
+	
+	myScrolls.refresh();
+});
+
+
+$$('#wrapper').swipeRight(function() {
+    // affects "span" children/grandchildren
+	
+	var myheight = $(document).height();
+	var width = ($(window).width())*0.80;
+	
+	$(this).toggleClass('open-nav');
+	
+    $("#animated").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#sortingg").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	$("#wrapper").animate({
+		left: width
+	}, { duration: 240, queue: false });
+	
+	$("#leftmenu").css({"height":myheight,
+						"width":width});
+	
+	myScrolls.refresh();
+});
+
+
+</script>  
+
+
 <?php
 	include "includes/close.php";
 ?>

@@ -1,7 +1,7 @@
 <?php include "includes/header.php";?>
 
 <?php
-/*
+
 $dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
 $extractx = mysql_query ($dbs);
 $numrows = mysql_num_rows ($extractx);
@@ -9,7 +9,7 @@ $numrows = mysql_num_rows ($extractx);
 if($numrows > 0)
 {
 	echo "<script>document.location.replace('vote.php');</script>";
-}*/
+}
 ?>
 <?php include "php/submit_play.php";?>
 <style>
