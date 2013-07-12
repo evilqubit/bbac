@@ -5,6 +5,7 @@
 <script type="text/javascript" src="src/iscroll.js"></script>
 
 
+
 <?php include "js/iscroll_function.php";?>
 <style>
 html { 
@@ -36,7 +37,6 @@ body{
 </style>
 
 <?php
-/*
 
 $dbs = "SELECT * FROM participants WHERE fb_id = '{$_SESSION['uid']}'";
 $extractx = mysql_query ($dbs);
@@ -46,7 +46,7 @@ if($numrows > 0)
 {
 	echo "<script>document.location.replace('vote.php');</script>";
 }
-*/
+
 ?>
     
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -77,7 +77,7 @@ if($numrows > 0)
       </li>
        <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
@@ -127,7 +127,7 @@ if($numrows > 0)
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -242,10 +242,29 @@ if($numrows > 0)
                    
               <label class="control-label fillout_pic_choose" id="thumb4" style="line-height: 8px;"><img src="images/thumb4.png"></label>
                <input type="hidden" value="" id="thumb_name" name="thumb_name"/>
+               <input type="hidden" value="" id="latitude" name="latitude"/>
+      		 <input type="hidden" value="" id="longitude" name="longitude"/>
             </div>
             
-             <div class="control-group" style="text-align:center">
-             	<input type="file" name="image" id="choose_file">
+             <div>
+             	<!--<input type="file" name="image" id="choose_file">-->
+                
+                <span class="btn btn-success fileinput-button">
+                <i class="icon-plus icon-white"></i>
+                <span>Select files...</span>
+                <!-- The file input field used as target for the file upload widget -->
+                <input id="fileupload" type="file" name="files[]" multiple>
+            </span><img style="position:absolute; margin-left: 6px; margin-top: 6px; display:none" id="loader" src="images/loader.gif">
+            <br>
+            <br>
+            <!-- The global progress bar -->
+            <div id="progress" class="progress progress-success progress-striped">
+                <div class="bar"></div>
+            </div>
+            <!-- The container for the uploaded files -->
+            <input type="hidden" value="" id="myimg" name="myimg">
+            <input type="hidden" value="" id="mytype" name="mytype">
+    
             </div>
             
             <div class="control-group" style="text-align:center">
@@ -272,15 +291,55 @@ if($numrows > 0)
  <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
 </div>
 
-<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
-</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="js/jquery.fileupload.js"></script>
+<script>
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'blueimp.github.io' ?
+                '//jquery-file-upload.appspot.com/' : '../app/gallerys/';
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+				$("#myimg").val(file.name);
+				$("#mytype").val(file.type);
+				$("#loader").css({"display":"none"});
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+			
+			$("#loader").css({"display":"block"});
+			
+            $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+
+
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="assets/js/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
+    
     <script src="assets/js/bootstrap-transition.js"></script>
     <script src="assets/js/bootstrap-alert.js"></script>
     <script src="assets/js/bootstrap-modal.js"></script>
@@ -296,8 +355,6 @@ if($numrows > 0)
     <script src="assets/js/bootstrap-affix.js"></script>
     
     
-     <script src="assets/js/bootstrap-fileupload.js"></script>
-    <script src="assets/js/bootstrap-fileupload.min.js"></script>
     
     <script src="assets/js/bootstrap-lightbox.js"></script>
     <script src="assets/js/bootstrap-lightbox.min.js"></script>
@@ -324,9 +381,25 @@ if($numrows > 0)
       })();
     </script>
     
+
     
 <script>
+$(window).ready(function(e) {
+    if (navigator.geolocation)
+    {
+   		navigator.geolocation.watchPosition(showPosition);
+    }
+  	else{}
+	
+	
+});
 
+
+function showPosition(position)
+{
+	$("#latitude").val(position.coords.latitude);
+	$("#longitude").val(position.coords.longitude);
+}
 
 $(".fillout_pic_choose").click(function(){
 	

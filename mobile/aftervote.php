@@ -75,7 +75,7 @@ body{
       </li>
        <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
@@ -125,7 +125,7 @@ body{
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -194,9 +194,15 @@ body{
  <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
 </div>
 
-<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
-</div>
+
+<script>
+
+$(window).load(function(e) {
+    setTimeout(function(){top.location.href = "http://www.bbacbank.com/banking/personal/card/mazroukeh-credit-card-summer-promotion"}, 3000);
+});
+
+</script>
+
 
     <!-- Le javascript
     ================================================== -->

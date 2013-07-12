@@ -1,12 +1,5 @@
 <?php
 
-$name = '';
-$lastname = '';
-$dob = '';
-$email = '';
-$address = '';
-$phone = '';
-	
 if(isset($_POST['submit_poll']))	
 {
 	$name = addslashes($_POST['name']);
@@ -20,7 +13,7 @@ if(isset($_POST['submit_poll']))
 	
 	if ( ($name != '') &&($lastname != '') && ($dob != '') && ($email != '') && ($address != '') )
 	{
-		$write ="INSERT INTO afcard VALUES  ('','{$_SESSION['uid']}','$name','$lastname','$dob','$address','{$_SESSION['country']}','$email','$phone','$date')";
+		$write ="INSERT INTO afcard VALUES  ('','{$_SESSION['uid']}','$name','$lastname','$dob','$address','{$_SESSION['country']}','$email','$phone','$date','0')";
 	
 		 mysql_query($write);
 					

@@ -85,7 +85,7 @@ if(isset($_GET['form']) == 'sent')
       </li>
        <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
@@ -135,7 +135,7 @@ if(isset($_GET['form']) == 'sent')
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -168,11 +168,16 @@ if(isset($_GET['form']) == 'sent')
 </header>
 
 <header id="overview">
-  <div class="container" id="styling_space" >
+  <div class="container" id="styling_space" onClick="redirect()">
     <h1>&nbsp;</h1>
   </div>
 </header>
-
+<script>
+function redirect()
+{
+	window.location = 'http://www.bbacbank.com/banking/personal/card/mazroukeh-credit-card-summer-promotion';
+}
+</script>
 
 <style>
 .span2{
@@ -298,9 +303,6 @@ if(isset($_GET['form']) == 'sent')
  <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
 </div>
 
-<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
-</div>
 
     <!-- Le javascript
     ================================================== -->

@@ -20,11 +20,11 @@ var myScroll,
 
 
 function pullUpAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+	//setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
 
 		get_images();
 		myScroll.refresh();	// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+	//}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
 }
 
 function loaded() {

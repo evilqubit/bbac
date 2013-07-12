@@ -1,5 +1,5 @@
 <?php session_start();
-/*
+
 include "demo.php";
 if ($deviceType == 'computer')
 {
@@ -22,7 +22,7 @@ $ip2c->table_name='ip2c';
 $_SESSION['country'] = $ip2c->get_country_name();
 //$ip2c->get_country_code();
 
-include "connect.php";*/
+include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +38,8 @@ include "connect.php";*/
 
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jQueryRotate.js"></script>
+    
+    <script src="js/jquery-noclickdelay.js"></script>
     
     <link rel="stylesheet" type="text/css" href="css/jquery.ui.core.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.ui.resizable.css" />
@@ -69,6 +71,35 @@ include "connect.php";*/
                     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="assets/ico/favicon.png">
 
+
+
+
+
+
+
+<!-- Bootstrap CSS Toolkit styles -->
+<link rel="stylesheet" href="http://blueimp.github.io/cdn/css/bootstrap.min.css">
+<!-- Generic page styles -->
+<!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
+<link rel="stylesheet" href="http://blueimp.github.io/cdn/css/bootstrap-responsive.min.css">
+<!-- Bootstrap CSS fixes for IE6 -->
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.io/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+
+
+
+
+    <link href="http://code.jquery.com/ui/1.8.21/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="http://code.jquery.com/ui/1.8.21/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    
+
+
+    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    
+    
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-146052-10']);

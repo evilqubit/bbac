@@ -1,47 +1,46 @@
+<Table style="width:100%"><Tr><Td align="center">
+<table style="width:90%;font-family: 'Conv_AvenirLTStd-Medium'; color:#FFF"><Tr><Td>
+<p>Picture Yourself Winning a Trip!</p>
 
-<table style="margin:15px" align="center" id="tc_table"><Tr><Td>
-            
-<p>By entering the TOTAL QUARTZ Robot photo competition on Total Liban Facebook page, you are agreeing to Total Liban storing your information. We will not share your information with third parties.</p>
+<p>If you are looking for a more fun-filled yet very rewarding summer experience, then look no further!</p>
 
-<p>This competition is in no way sponsored, endorsed or administered by, or associated with Facebook. By participating, you hereby release and indemnify Facebook from any and all liability associated with this competition.</p>
+<p>BBAC is giving you the golden opportunity to win a trip to Europe and other valuable prizes with the 'Face-in-the-Hole' competition, developed in relation to the bank's recently launched "Mazroukeh?" Credit Card Summer Promotion.</p>
 
-<p>Entrants are providing information to Total Liban and not to Facebook.</p>
+<p>All you have to do is simply be creative with your face, make the best facial expression, and you could be the lucky winner.</p>
 
-<p>By adding photos to the Facebook competition gallery, you are granting permission for these images to be used by Total for any type of communication.</p>
-
-<p>You must be the author/copyright holder of all images submitted. Total Liban has the right to disqualify any photos not respecting the below criteria:<br />
-- Photos must show the Total Quartz robot<br />
-- Photos must not contain any inappropriate gestures and/or must not contain any offense against public decency</p>
-
-<p>Entries must be submitted by midnight June 22nd at the latest. Voting for the best pictures is open until midnight June 30th. The winners will be announced on July 1 at noon.</p>
-
-<p>Please read the competition rules carefully. If you enter one of our competitions, we will assume that you have read the rules and that you agree to them.</p>
+<p><b>* The competition requires entrants to upload their portrait photo with a creative facial expression in their desired 'Face-in-the-Hole' template. The photo with the highest number of "Likes" wins.</b></p>
 
 <p>1. To enter the competition you must be: <br />
-(a) Lebanese resident; and<Br />
-(b) 18 years old or over at the time of entry. Proof of identity and age may be required<br />
-(c) If you are under 18 and you want to participate, you must be accompanied by your parents to receive your gift in case you win. Proof of identity may be required</p>
+     (a) Lebanese resident <Br />
+     (b) 18 years old or over at the time of entry.</p>
 
-<p>2. Competitions are not open to employees (or members of their immediate families) of Total Liban.</p>
+<p>2. Entrant can register only once.</p>
 
-<p>3. Entries can only be posted on Facebook. Competition details are a part of these terms and conditions.</p>
+<p>3. No responsibility can be accepted for entries that are not received for any reason.</p>
 
-<p>4. No responsibility can be accepted for entries that are not received for any reason.</p>
+<p>4. The winners will be the entrants who are selected from fans voting.</p>
 
-<p>5. The 3 winners will be the entrants that receive the most likes on their photos. The winners agree to the use of their name and photograph and will co-operate with any other reasonable requests by Total Liban relating to any post-winning publicity.</p>
+<p>5. The closing date is as specified in the competition, namely August 10, 2013, and BBAC Bank reserves the right to amend the competition end date at any time.</p>
 
-<p>6. The closing date is as specified above, and Total Liban reserves the right to amend the competition end date at any time.</p>
+<p>6. Winners will be notified by telephone or e-mail. If a winner cannot be contacted or does not respond within two weeks, BBAC Bank reserves the right to offer the prize to another entrant.</p>
 
-<p>7. Winners will be notified via wall post on the Total Liban Facebook page at the date and time specified above. They will also be notified by telephone or e-mail. If we cannot contact the winners or if they do not respond within two weeks (until July 15), Total Liban reserve the right to offer the prize to another competition entrant. The prize cannot be transferable to another person. No prize or part of a prize is exchangeable for cash. The prize will be attributed to the person who submitted the photo.</p>
+<p>7. The prize cannot be transferable to another person.</p>
 
-<p>8. By entering the competition, entrants acknowledge that their Facebook username, profile picture and any additional content submitted will be published on the Total Liban Facebook page and may be viewed by all web users.</p>
+<p>8. No prize or part of a prize is exchangeable for cash, tickets or services.</p>
 
-<p>9. Incorrect/ incomplete entries will be disqualified. Using a false name or address will result in disqualification.</p>
+<p>9. Incorrectly completed entries will be disqualified.</p>
 
-<p>10. Unless otherwise stated, winners will receive their prize within 30 days from the closing date of the competition. Winners are to pick up their prize at Total Liban premises at Ashrafieh, Beirut.</p>
+<p>10. BBAC Bank reserves the right to disqualify any entrant submitting an entry which violates a third party's intellectual property rights, or holds offensive content, including but not limited to profanity, nudity, potentially insulting, scandalous, inflammatory, defamatory images or language.</p>
 
-<p>11. The competition may be modified or withdrawn at any time.</p>
+<p>11. BBAC Bank reserves the right to disqualify any entrant that appears to have accumulated "fake votes". "Fake votes" are votes from Facebook users that BBAC Bank considers non-authentic i.e. with no physical user/real person behind the profile. </p>
 
+<p>12. Email addresses and mobile numbers from entrants will not be sent to any third party without the entrants' consent.</p>
 
-            
-            </Td></Tr></table>
+<p>13. Entrants can only win once in the competition. Once the entrant has won, he/she cannot win again, under any category or prize mechanic.</p>
+
+<p>14. The names of the winners will be announced and published on the BBAC Bank Facebook page after one (business) week of the closing date of the competition (within 7 business days).</p>
+
+<p>15. Entrants to this competition agree to abide by these Terms and Conditions.</p>
+
+</Td></Tr></table>
+</Td></Tr></Table>

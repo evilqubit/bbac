@@ -229,7 +229,7 @@ body{
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="vote.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
+        <a class="top_menu0" href="play.php"><img style="width:25px" src="images/icons/prizes.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">PLAY</span></a>
       </li>
       <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li style="background-color:#666666;">
@@ -241,7 +241,7 @@ body{
       </li>
        <li><hr style="border-color:#2D2D2D" width=100%></li>
       <li>
-        <a class="top_menu0" href="#tc" role="button" data-toggle="modal"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
+        <a class="top_menu0" href="tc.php"><img style="width:25px" src="images/icons/terms-and-conditions.png">&nbsp;&nbsp;<span style="margin-top:3px; position:absolute">TERMS AND CONDITIONS</span></a>
       </li>
       
    
@@ -291,7 +291,7 @@ body{
               </li>
               <li><hr style="border-color:#000" width=100%></li>
               <li>
-                <a class="top_menu" href="#tc" role="button" data-toggle="modal">TERMS AND CONDITIONS</a>
+                <a class="top_menu" href="tc.php">TERMS AND CONDITIONS</a>
               </li>
               <li><hr style="border-color:#000" width=100%></li>
             
@@ -305,17 +305,30 @@ body{
       </div>
     </div>
 
-    
+    <style>
+
+	#mytables{
+		background: #ccc;
+		margin: 20px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+	}
+	</style>
 
    <table id="sortingg" style="position:absolute; width:100%"><tr><Td align="center">
    
-   				<table style="background-image:url(images/sorting.png); width:443px; height:29px;font-family: 'Conv_HelveticaNeueLTStd-Md';"><Tr><Td style="width: 138px; text-align:right; color:#FFF">SORT BY:</Td><tD style="width: 117px; text-align:right; color:#98d3ed"><a href="vote.php?sort=1" style="text-decoration:none;color:#98d3ed">NAME</a></tD><Td style="width: 66px; text-align:center"><img src="images/bar.png"></Td><Td style="color:#98d3ed"><a href="vote.php?sort=2" style="text-decoration:none;color:#98d3ed">VOTES</a></Td></Tr></table>
+   				<table id="mytables" style="background-color:#014289; width:90%; height:29px;font-family: 'Conv_HelveticaNeueLTStd-Md'; max-width:400px"><Tr>
+                <Td style="width: 31%; text-align:right; color:#FFF">SORT BY:</Td>
+                <tD style="width: 27%; text-align:right; color:#98d3ed"><a href="vote.php?sort=1" style="text-decoration:none;color:#98d3ed">NAME</a></tD>
+                <Td style="width: 15%; text-align:center"><img src="images/bar.png"></Td>
+                <Td style="width:27%; color:#98d3ed"><a href="vote.php?sort=2" style="text-decoration:none;color:#98d3ed">VOTES</a></Td></Tr></table>
                 
 	</Td></tr></table>
    
 
 
-<div id="wrapper">
+<div id="wrapper" style="top:125px">
 	<div id="scroller">
 		<div id="pullDown">
 			
@@ -332,7 +345,7 @@ body{
     	<div class="span12">
        		
             <div class="row" id="gallery_table">
-            	
+            	<table align="center" id="mother_gallery"><Tr><Td align="center">
             <!-- Docs nav
     ================================================== -->
  <?php   
@@ -379,7 +392,7 @@ body{
 				?>
 
                 
-                
+                </Td></Tr></table>
                 </div>
             
             
@@ -398,12 +411,6 @@ body{
 <div id="prizes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <img data-dismiss="modal" aria-hidden="true" src="images/prizes.png">
 </div>
-
-<div id="tc" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- <img data-dismiss="modal" aria-hidden="true" src="images/tc.png">
-</div>
-    
-
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -494,7 +501,7 @@ $(document).ready(function() {
 			name: 'BBAC',
 			link: 'http://www.facebook.com/bbacbank?&sk=app_597766673589432',
 			picture: img,
-			caption: 'Please vote for this image',
+			caption: 'I just voted for this image',
 			description: '',
 			message: ''
 			});
@@ -560,7 +567,7 @@ $(document).ready(function(e) {
 	var mywidth = $(document).width();
 	
 	$('#animated').css({"width":mywidth});
-    var newheight = myheight - 110;
+    var newheight = myheight - 130;
 	$('#wrapper').css({"height":newheight});
 	
 	$("#leftmenu").css({"height":0});
@@ -592,7 +599,7 @@ $(window).resize(function() {
 
 	$('#animated').css({"width":mywidth});
 	
-    var newheights = myheights - 110;
+    var newheights = myheights - 130;
 
 	$('#wrapper').css({"height":newheights});
 	

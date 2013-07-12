@@ -14,7 +14,7 @@
 	
 	if ( ($name != '') &&($lastname != '') && ($dob != '') && ($email != '') && ($address != '') && ($phone != '') )
 	{
-		$write ="INSERT INTO afcard VALUES  ('','{$_SESSION['uid']}','$name','$lastname','$dob','$address','{$_SESSION['country']}','$email','$phone','$date')";
+		$write ="INSERT INTO afcard VALUES  ('','{$_SESSION['uid']}','$name','$lastname','$dob','$address','{$_SESSION['country']}','$email','$phone','$date','0')";
 	
 		 mysql_query($write);
 					
